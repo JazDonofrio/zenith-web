@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZENITH | Ingeniería & Diseño Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-light: #f9f9f9;
+            --bg-dark: #111;
+            --card-gray: #444;
+            --text-dark: #1a1a1a;
+            --accent-chrome: linear-gradient(135deg, #e0e0e0 0%, #ffffff 45%, #909090 50%, #ffffff 55%, #b0b0b0 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; background: white; color: var(--text-dark); overflow-x: hidden; }
+
+        
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            display: flex; justify-content: center; padding: 20px 0;
+            background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        nav a {
+            text-decoration: none; color: var(--text-dark); margin: 0 20px;
+            font-size: 0.7rem; font-weight: 600; letter-spacing: 2px;
+            text-transform: uppercase; transition: 0.3s;
+        }
+        nav a:hover { opacity: 0.5; }
+
+        
+        #inicio {
+            height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: url('pexels-pixabay-208001.jpg') center/cover no-repeat;
+            position: relative; overflow: hidden; filter: grayscale(100%);
+        }
+        #inicio::before { content: ''; position: absolute; inset: 0; background: rgba(255, 255, 255, 0.2); }
+        .chrome-heart { position: relative; z-index: 2; width: 220px; animation: float 6s ease-in-out infinite; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15)); }
+        .hero-title { position: relative; z-index: 2; text-align: center; margin-top: 20px; }
+        .hero-title h1 { font-family: 'Playfair Display', serif; font-size: 4.5rem; font-weight: 400; line-height: 1; }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .section-padding { padding: 100px 0; }
+        h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; text-align: center; letter-spacing: 3px; margin-bottom: 40px; }
+
+       
+        #servicios { background: #f4f4f4; }
+        .category-title { text-align: center; width: 100%; padding-bottom: 40px; font-size: 1.4rem; font-weight: 300; letter-spacing: 6px; text-transform: uppercase; border-bottom: 1px solid #ddd; margin-bottom: 40px; }
+        .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-bottom: 80px; }
+        
+        .card { 
+            background: var(--card-gray); color: white; padding: 40px 20px; border-radius: 5px; 
+            text-align: center; cursor: pointer; transition: 0.4s; position: relative;
+            min-height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+        .card:hover { background: #111; transform: translateY(-5px); }
+        .card span { font-size: 2.5rem; display: block; margin-bottom: 15px; }
+        .card h3 { font-size: 0.9rem; font-weight: 400; text-transform: uppercase; letter-spacing: 1px; }
+        .plus { position: absolute; top: 15px; right: 15px; opacity: 0.4; font-size: 1.2rem; }
+
+       
+        #packs { background: var(--bg-dark); color: white; }
+        .pack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .pack-card { border: 1px solid rgba(255,255,255,0.2); padding: 50px 30px; text-align: center; background: rgba(255,255,255,0.03); transition: 0.4s; cursor: pointer; }
+        .pack-card:hover { border-color: white; background: rgba(255,255,255,0.08); }
+        .discount-badge { display: inline-block; background: var(--accent-chrome); color: black; padding: 5px 15px; font-weight: bold; font-size: 0.8rem; margin-bottom: 20px; }
+
+        
+        #contacto { background: white; }
+        .contact-form { max-width: 600px; margin: 0 auto; }
+        .form-group { margin-bottom: 20px; }
+        .contact-form input, .contact-form select, .contact-form textarea {
+            width: 100%; padding: 15px; border: 1px solid #ddd; background: #fdfdfd;
+            font-family: 'Montserrat', sans-serif; font-size: 0.9rem; outline: none; transition: 0.3s;
+        }
+        .cta-btn { 
+            display: inline-block; width: 100%; padding: 18px; background: var(--accent-chrome); 
+            color: black; text-decoration: none; font-weight: 600; font-size: 0.75rem; 
+            letter-spacing: 3px; border: none; cursor: pointer; margin-top: 10px;
+        }
+
+        
+        #modal { position: fixed; inset: 0; background: rgba(0,0,0,0.95); display: none; justify-content: center; align-items: center; z-index: 2000; }
+        .modal-box { background: white; padding: 50px; max-width: 600px; width: 90%; position: relative; animation: slideUp 0.4s ease; }
+        .modal-box h3 { text-align: center; font-family: 'Playfair Display'; font-size: 1.8rem; margin-bottom: 20px; color: black; text-transform: uppercase;}
+        .close { position: absolute; top: 20px; right: 25px; cursor: pointer; font-size: 2rem; color: black; }
+        #m-desc { border-top: 1px solid #eee; padding-top: 20px; line-height: 1.6; color: #444; font-size: 0.95rem; }
+        .price { font-size: 2.2rem; font-weight: 700; margin: 25px 0; display: block; color: #000; text-align: center; }
+
+        @keyframes slideUp { from { opacity:0; transform: translateY(30px); } to { opacity:1; transform: translateY(0); } }
+
+        footer { padding: 50px 0; text-align: center; background: #f9f9f9; font-size: 0.8rem; color: #999; }
+
+        @media (max-width: 768px) { .hero-title h1 { font-size: 3rem; } .grid-services { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#packs">Packs</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <section id="inicio">
+        <div class="hero-title">
+            <h1>ZENITH</h1>
+            <p style="letter-spacing: 5px; font-weight: 300; font-size: 0.8rem; margin-top: 10px;">INGENIERÍA & DISEÑO DIGITAL</p>
+        </div>
+    </section>
+
+    <section id="servicios" class="section-padding">
+        <div class="container">
+            
+            <h2 class="category-title">Presencia Digital</h2>
+            <div class="grid-services">
+                <div class="card" onclick="openM('Carta Digital', 'Versión electrónica del menú, accesible desde un dispositivo móvil usualmente escaneando un código QR, que permite ver platos, bebidas, precios y hasta fotos.', '$20.000')">
+                    <span class="plus">+</span><span>📑</span><h3>Carta Digital</h3>
+                </div>
+                <div class="card" onclick="openM('Página Web Simple', 'Desarrollo de sitio One-Page profesional y adaptable. <br><br><strong>Nota:</strong> No incluye costos de dominio ni hosting.', '$50.000')">
+                    <span class="plus">+</span><span>🌐</span><h3>Página Web Simple</h3>
+                </div>
+                <div class="card" onclick="openM('Google Maps', 'Configuración de Google Business Profile y posicionamiento local en Maps.', '$10.000')">
+                    <span class="plus">+</span><span>📍</span><h3>Google Maps</h3>
+                </div>
+                <div class="card" onclick="openM('Diseño de Flyers', 'Diseño de piezas gráficas publicitarias para redes sociales o impresión.', '$6.000')">
+                    <span class="plus">+</span><span>🎨</span><h3>Diseño Flyers</h3>
+                </div>
+                <div class="card" onclick="openM('Asistente Digital', 'Configuración de herramientas digitales, bots de respuesta o automatización básica.', '$15.000')">
+                    <span class="plus">+</span><span>🤖</span><h3>Asistente Digital</h3>
+                </div>
+            </div>
+
+            <h2 class="category-title">Hardware & Sistemas</h2>
+            <div class="grid-services">
+                <div class="card" onclick="openM('Instalación de Sistema Operativo', 'Formateo completo, instalación de Windows/Linux y optimización de drivers para rendimiento máximo.', '$18.000')">
+                    <span class="plus">+</span><span>⚙️</span><h3>Instalación de S.O.</h3>
+                </div>
+                <div class="card" onclick="openM('Asesoría de Hardware', 'Consultoría técnica integral para la compra o actualización de componentes según presupuesto. <br><br><strong>Nota:</strong> No incluye partes físicas.', '$10.000')">
+                    <span class="plus">+</span><span>🖥️</span><h3>Asesoría Hardware</h3>
+                </div>
+                <div class="card" onclick="openM('Instalación Paquete Office', 'Instalación y activación de herramientas Office (Word, Excel, PowerPoint) para trabajo o estudio.', '$10.000')">
+                    <span class="plus">+</span><span>📊</span><h3>Paquete Office</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="packs" class="section-padding">
+        <div class="container">
+            <h2 style="color: white;">PACKS PROMOCIONALES</h2>
+            <div class="pack-grid">
+                <div class="pack-card" onclick="openM('Pack Turismo', 'Web + Maps + QR Wi-Fi. La solución completa para tu emprendimiento local.', '$42.000')">
+                    <div class="discount-badge">-30% OFF</div>
+                    <h3>Pack Turismo</h3>
+                    <p>Optimización total para cabañas, bares y servicios.</p>
+                </div>
+                <div class="pack-card" onclick="openM('Pack Renovación', 'Sistemas + Office + Optimización. Dejá tu equipo como nuevo.', '$19.600')">
+                    <div class="discount-badge">-30% OFF</div>
+                    <h3>Pack Renovación</h3>
+                    <p>Ideal para notebooks de estudio o estaciones de trabajo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="section-padding">
+        <div class="container">
+            <h2>C O N T A C T O</h2>
+            <form action="https://formspree.io/f/xqekrbpb" method="POST" class="contact-form">
+                <div class="form-group"><input type="text" name="nombre" placeholder="Nombre Completo" required></div>
+                <div class="form-group"><input type="email" name="email" placeholder="Tu Correo Electrónico" required></div>
+                <div class="form-group">
+                    <select name="servicio">
+                        <option value="" disabled selected>Servicio de interés</option>
+                        <option value="Web">Página Web</option>
+                        <option value="Sistemas">Soporte Técnico</option>
+                        <option value="Pack">Pack Promocional</option>
+                    </select>
+                </div>
+                <div class="form-group"><textarea name="mensaje" rows="5" placeholder="¿En qué puedo ayudarte?" required></textarea></div>
+                <button type="submit" class="cta-btn">ENVIAR CONSULTA</button>
+            </form>
+            <div style="margin-top: 40px; text-align: center;">
+                <a href="https://wa.me/5491131640600" style="color: black; font-weight: 600; text-decoration: underline; font-size: 0.8rem;">CONTACTO DIRECTO WHATSAPP</a>
+            </div>
+        </div>
+    </section>
+
+    <footer><p>ZENITH | Ingeniería & Diseño Digital © 2025</p></footer>
+
+    <div id="modal">
+        <div class="modal-box">
+            <span class="close" onclick="closeM()">&times;</span>
+            <h3 id="m-title"></h3>
+            <div id="m-desc"></div>
+            <span id="m-price" class="price"></span>
+            <div style="text-align: center;"><a href="https://wa.me/5491131640600" style="color: black; font-weight: 600; text-decoration: underline; letter-spacing: 1px;">INICIAR PEDIDO</a></div>
+        </div>
+    </div>
+
+    <script>
+        function openM(t, d, p) {
+            document.getElementById('m-title').innerText = t;
+            document.getElementById('m-desc').innerHTML = d;
+            document.getElementById('m-price').innerText = p;
+            document.getElementById('modal').style.display = 'flex';
+        }
+        function closeM() { document.getElementById('modal').style.display = 'none'; }
+        window.onclick = function(e) { if(e.target == document.getElementById('modal')) closeM(); }
+    </script>
+</body>
+
+</html>
+

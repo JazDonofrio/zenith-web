@@ -100,6 +100,94 @@
         footer { padding: 50px 0; text-align: center; background: #f9f9f9; font-size: 0.8rem; color: #999; }
 
         @media (max-width: 768px) { .hero-title h1 { font-size: 3rem; } .grid-services { grid-template-columns: 1fr; } }
+        /* --- Estilos de Info y Ejemplos --- */
+.seccion-info-ejemplos {
+    padding: 80px 20px;
+    background-color: #ffffff; /* Fondo blanco para que destaque */
+    border-top: 1px solid #f0f0f0;
+}
+
+.contenedor-ejemplos {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.intro-texto {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.titulo-zenith {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.bajada-zenith {
+    font-family: 'Montserrat', sans-serif;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.grilla-proyectos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card-ejemplo {
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    padding: 30px;
+}
+
+.card-ejemplo:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    border-color: #ddd;
+}
+
+.emoji-categoria {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.card-cuerpo h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.card-cuerpo p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.link-demo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    color: #000;
+    font-size: 0.9rem;
+    border-bottom: 2px solid #000;
+    padding-bottom: 4px;
+    transition: color 0.3s;
+}
+
+.link-demo:hover {
+    color: #4A7C44; /* Verde lima de tu carta digital */
+    border-color: #4A7C44;
+}
     </style>
 </head>
 <body>
@@ -129,8 +217,8 @@
                 <div class="card" onclick="openM('Página Web Simple', 'Desarrollo de sitio One-Page profesional y adaptable. <br><br><strong>Nota:</strong> No incluye costos de dominio ni hosting.', '$50.000')">
                     <span class="plus">+</span><span>🌐</span><h3>Página Web Simple</h3>
                 </div>
-                <div class="card" onclick="openM('Google Maps', 'Configuración de Google Business Profile y posicionamiento local en Maps.', '$10.000')">
-                    <span class="plus">+</span><span>📍</span><h3>Google Maps</h3>
+                <div class="card" onclick="openM('Desarrollo Web Multi-página', 'Una página web organizada por pestañas o secciones separadas (por ejemplo: Inicio, Quiénes Somos, Servicios y Contacto). <br><br><strong>Nota:</strong> No incluye costos de dominio ni hosting.', '$85.000')">
+                    <span class="plus">+</span><span>🗂️</span><h3>Desarrollo Web Multi-página</h3>
                 </div>
                 <div class="card" onclick="openM('Diseño de Flyers', 'Diseño de piezas gráficas publicitarias para redes sociales o impresión.', '$6.000')">
                     <span class="plus">+</span><span>🎨</span><h3>Diseño Flyers</h3>
@@ -172,6 +260,39 @@
             </div>
         </div>
     </section>
+    <section id="info-ejemplos" class="seccion-info-ejemplos">
+    <div class="contenedor-ejemplos">
+        <div class="intro-texto">
+            <h2 class="titulo-zenith">Info y Ejemplos</h2>
+            <p class="bajada-zenith">
+                Crear una presencia digital no tiene por qué ser complicado. 
+                Acá podés ver cómo transformamos ideas en herramientas reales para tu negocio.
+            </p>
+        </div>
+
+        <div class="grilla-proyectos">
+            <article class="card-ejemplo">
+                <div class="card-cuerpo">
+                    <span class="emoji-categoria">📂</span>
+                    <h3>Carta Digital QR</h3>
+                    <p>Mantené tus precios al día y mostrá tus productos de forma atractiva en el celular de tus clientes.</p>
+                    <a href="galeria-cartas.html" class="link-demo">Ver Tipos de Cartas →</a>
+                </div>
+            </article>
+
+            <article class="card-ejemplo">
+                <div class="card-cuerpo">
+                    <span class="emoji-categoria">🗂️</span>
+                    <h3>Sitio Web Multi-página</h3>
+                    <p>La opción ideal para empresas que necesitan organizar mucha información en secciones separadas.</p>
+                    <a href="ejemplo-multi.html" target="_blank" class="link-demo">Ver Ejemplo Real →</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+
 
     <section id="contacto" class="section-padding">
         <div class="container">

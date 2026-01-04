@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Alojamientos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Montserrat', sans-serif; margin: 0; padding-bottom: 50px; }
+        nav { background: #2c3e50; padding: 20px; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; }
+        .grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 40px; }
+        .card { width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .info { padding: 15px; }
+        .precio { color: #e67e22; font-weight: bold; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="alojamientos.html">Alojamientos</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+    <h1 style="text-align: center; margin-top: 40px;">Elegí tu lugar</h1>
+    <div class="grid">
+        <div class="card">
+            <div style="height: 200px; background: #ccc;"></div> <div class="info">
+                <h3>Cabaña Familiar</h3>
+                <p>Hasta 5 personas. Vista al lago y parrilla propia.</p>
+                <p class="precio">$85.000 / noche</p>
+            </div>
+        </div>
+        <div class="card">
+            <div style="height: 200px; background: #bbb;"></div>
+            <div class="info">
+                <h3>Apartamento Studio</h3>
+                <p>Ideal parejas. Equipamiento premium y wifi.</p>
+                <p class="precio">$55.000 / noche</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

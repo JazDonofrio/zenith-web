@@ -3,40 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZENITH - Menú Full</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <title>ZENITH - Menú Restaurante Completo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Montserrat', sans-serif; background-color: #FDF6E3; padding: 20px; }
-        .contenedor-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 900px; margin: auto; }
-        .bloque { border-radius: 20px; padding: 20px; border: 4px solid; background: white; }
-        .naranja { border-color: #D35400; color: #D35400; }
-        .verde { border-color: #27AE60; color: #27AE60; }
-        .fondo-naranja { background-color: #D35400; color: white; border: none; }
-        .fondo-verde { background-color: #27AE60; color: white; border: none; }
-        h2 { text-transform: uppercase; font-size: 1.8rem; margin: 0 0 15px 0; text-align: center; }
-        .plato { display: flex; justify-content: space-between; color: #333; margin-bottom: 10px; font-size: 0.9rem; }
-        .precio { font-weight: bold; }
+        :root {
+            --color-naranja: #D35400;
+            --color-verde: #27AE60;
+            --fondo-beige: #FDF6E3;
+            --texto-oscuro: #333;
+            --borde-fino: #333; /* Color del borde exterior */
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fff; /* Fondo de la página web */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn-volver {
+            align-self: flex-start;
+            text-decoration: none;
+            color: var(--texto-oscuro);
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        /* --- Contenedor Principal del Menú (El marco exterior) --- */
+        .carta-contenedor {
+            background-color: var(--fondo-beige);
+            border: 2px solid var(--borde-fino); /* El borde fino de la imagen */
+            padding: 30px;
+            max-width: 1000px;
+            width: 100%;
+            box-sizing: border-box; /* Para que el padding no agrande el ancho */
+        }
+
+        /* --- Títulos estilo "Marker" --- */
+        h1, h2 {
+            font-family: 'Permanent Marker', cursive;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        h1.titulo-principal {
+            font-size: 4rem;
+            color: var(--color-naranja);
+            text-align: center;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .banner-zenith {
+            background-color: var(--color-verde);
+            color: white;
+            text-align: center;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h2.titulo-seccion {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- Estilos de los Ítems --- */
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 12px;
+            color: var(--texto-oscuro);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .precio {
+            font-weight: 700;
+            margin-left: 10px;
+        }
+
+        /* --- Tipos de Cajas --- */
+        .caja {
+            border-radius: 25px;
+            padding: 25px;
+            height: 100%; /* Para que ocupen toda la altura de su celda */
+            box-sizing: border-box;
+        }
+
+        .caja-borde-naranja {
+            border: 3px solid var(--color-naranja);
+            background: transparent;
+        }
+        .caja-borde-naranja h2 { color: var(--color-naranja); }
+
+        .caja-solida-naranja {
+            background-color: var(--color-naranja);
+            color: white;
+        }
+        .caja-solida-naranja h2, .caja-solida-naranja .item { color: white; }
+
+        .caja-solida-verde {
+            background-color: var(--color-verde);
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .caja-solida-verde h2 { color: white; margin-bottom: 10px; }
+        .precio-grande { font-size: 2.5rem; font-weight: 700; }
+
+        .seccion-postres h2 { color: var(--color-verde); }
+
+        /* --- GRILLA (Layout para PC) --- */
+        .menu-grid {
+            display: grid;
+            /* 3 columnas: izquierda, centro, derecha */
+            grid-template-columns: 1fr 1fr 1fr; 
+            grid-template-rows: auto auto auto; /* Filas automáticas */
+            gap: 30px; /* Espacio entre cajas */
+            align-items: start; /* Alinear elementos arriba */
+        }
+
+        /* Posicionamiento exacto de cada elemento en la grilla */
+        .area-titulo { grid-column: 2 / 3; grid-row: 1 / 2; text-align: center; }
+        .area-calientes { grid-column: 1 / 2; grid-row: 1 / 3; } /* Ocupa 2 filas */
+        .area-bebidas { grid-column: 3 / 4; grid-row: 1 / 2; }
+        .area-frios { grid-column: 2 / 3; grid-row: 2 / 4; } /* Ocupa 2 filas */
+        .area-menu-dia { grid-column: 1 / 2; grid-row: 3 / 4; }
+        .area-postres { grid-column: 3 / 4; grid-row: 2 / 4; }
+
+        /* --- RESPONSIVE (Para Celular) --- */
+        @media (max-width: 768px) {
+            .carta-contenedor { padding: 15px; }
+            
+            .menu-grid {
+                /* En celular, todo en una sola columna */
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                gap: 20px;
+            }
+
+            /* Reseteamos las posiciones para que se apilen en orden */
+            .area-titulo, .area-calientes, .area-bebidas, 
+            .area-frios, .area-menu-dia, .area-postres {
+                grid-column: auto;
+                grid-row: auto;
+            }
+
+            /* Ajustamos el orden visual para el celular */
+            .area-titulo { order: 1; }
+            .area-calientes { order: 2; }
+            .area-bebidas { order: 3; }
+            .area-frios { order: 4; }
+            .area-menu-dia { order: 5; }
+            .area-postres { order: 6; }
+            
+            h1.titulo-principal { font-size: 3rem; }
+            h2.titulo-seccion { font-size: 1.8rem; }
+        }
+        /* --- Centrado exacto del encabezado --- */
+        .area-titulo {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centra horizontalmente el título y el banner */
+        justify-content: center;
+        text-align: center;
+    margin-bottom: 20px;
+        }
+
+        h1.titulo-principal {
+        font-family: 'Permanent Marker', cursive;
+        font-size: 4rem;
+        color: var(--color-naranja);
+        margin: 0;
+        line-height: 1;
+        }
+
+        .banner-zenith {
+        background-color: var(--color-verde);
+        color: white;
+        padding: 8px 30px;
+        border-radius: 25px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        display: inline-block;
+        margin-top: 5px; 
+        width: fit-content; 
+        }
+
+        
     </style>
+
 </head>
 <body>
-    <div class="contenedor-menu">
-        <div class="bloque naranja">
-            <h2>Calientes</h2>
-            <div class="plato">Huevos orgánicos con papas... <span class="precio">$1.234</span></div>
-            <div class="plato">Pan con chorizo a la sidra... <span class="precio">$1.234</span></div>
-        </div>
-        <div class="bloque fondo-naranja">
-            <h2>Bebidas</h2>
-            <div class="plato" style="color:white">Limonada con menta <span class="precio">$1.234</span></div>
-        </div>
-        <div class="bloque verde">
-            <h2>Fríos</h2>
-            <div class="plato">Tortilla de papas... <span class="precio">$1.234</span></div>
-        </div>
-        <div class="bloque fondo-verde">
-            <h2>Menú del día</h2>
-            <div style="text-align: center; font-size: 1.5rem;">$1.234</div>
-        </div>
-    </div>
-</body>
+
+    <a href="galeria-cartas.html" class="btn-volver">← Volver a la Galería</a>
+
+    <div class="carta-contenedor">
+        
+        <div class="menu-grid">
+
+            <div class="area-titulo">
+                <h1 class="titulo-principal">MENÚ</h1>
+                <div class="banner-zenith">ZENITH BAR</div>
+            </div>
+
+            <div class="caja caja-borde-naranja area-calientes">
+                <h2 class="titulo-seccion">CALIENTES</h2>
+                <div class="item"><div>Huevos orgánicos con papas y jamón crudo.</div><div class="precio">$1.234</div></div>
+                <div class="item"><div>Pan con chorizo a la sidra y variedad de salsas.</div><div class="precio">$1.234</div></div>
+                <div class="item"><div>Cubos de papas fritas con salsa de ají.</div><div class="precio">$1.234</div></div>
+                <div class="item"><div>Bocadillo de rabas, lechuga y tomate.</div><div class="precio">$1.234</div></div>
+            </div>
+
+            <div class="caja caja-solida-naranja area-bebidas">
+                <h2 class="titulo-seccion">BEBIDAS</h2>
+                <div class="item"><div>Limonada con menta.</div><div class="precio">$1.234</div></div>
+                <div class="item"><div>Jugo de naranja.</div><div class="precio">$1.234</div></div>
+                <div class="item"><div>Gaseosas.</div><div class="precio">$1.234</div></div>
+                <div class="item"><div>Agua.</div><div class="precio">$1.234</div></div>
+            </div>
+
+            <div class="caja caja-borde-naranja area-frios">
+                <h2 class="titulo-seccion">FRÍOS</h2>
+                <div class="item"><div>Tortilla de papas con cebolla y huevo.</div><div class="precio">$1.234</div></div>
+                <div class="item"><div>Pincho de tomate, oliva y jamón crudo.</div><div class="precio">$1.234</div></div>
+                <div class="item"><div>Champiñones en aceite de oliva, palta y tomate.</div><div class="precio">$1.234</div></div>
+                <div class="item"><div>Ensalada rusa.</div><div class="precio">$1.234</div></div>
+            </div>
+
+            <div class="caja caja-solida-verde area-menu-dia">
+                <h2 class="titulo-seccion">MENU DEL DIA</h2>
+                <div class="precio-grande">$1.234</div>
+            </div>
+
+            <div class="seccion-postres area-postres">
+                <h2 class="titulo-seccion">POSTRES</h2>
+                <div class="item"><div>Brownie.</div><div class="precio">$1.234</div></div>
+                <div class="item"><div>Mousse de chocolate.</div><div class="precio">$1.234</div></div>
+                <div class="item"><div>Tarta de nuez.</div><div class="precio">$1.234</div></div>
+                <div class="item"><div>Crema catalana.</div><div class="precio">$1.234</div></div>
+            </div>
+
+        </div> </div> </body>
 </html>

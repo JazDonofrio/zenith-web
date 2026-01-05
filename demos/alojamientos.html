@@ -3,41 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestros Alojamientos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Nuestras Unidades | El Refugio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Montserrat', sans-serif; margin: 0; padding-bottom: 50px; }
-        nav { background: #2c3e50; padding: 20px; text-align: center; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; }
-        .grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 40px; }
-        .card { width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        .info { padding: 15px; }
-        .precio { color: #e67e22; font-weight: bold; font-size: 1.2rem; }
+        :root { 
+            --rustic-dark: #2c241b; 
+            --rustic-light: #f4f1e8; 
+            --rustic-accent: #c4a661; 
+        }
+        body { font-family: 'Montserrat', sans-serif; background: var(--rustic-light); margin: 0; color: #3e3228; }
+        
+        /* Navegación */
+        nav { background: var(--rustic-dark); padding: 25px; text-align: center; border-bottom: 2px solid var(--rustic-accent); }
+        nav a { color: var(--rustic-light); margin: 0 20px; text-decoration: none; font-family: 'Playfair Display', serif; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+        nav a:hover { color: var(--rustic-accent); }
+
+        .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+        h2 { font-family: 'Playfair Display', serif; text-align: center; font-size: 2.8rem; color: var(--rustic-dark); margin-bottom: 10px; }
+        .subtitulo { text-align: center; letter-spacing: 4px; font-size: 0.9rem; color: var(--rustic-accent); margin-bottom: 50px; text-transform: uppercase; }
+
+        /* Grilla de Alojamientos */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .card { background: white; border: 1px solid #ddd; transition: 0.4s; overflow: hidden; }
+        .card:hover { border-color: var(--rustic-accent); transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .img-placeholder { height: 250px; background-size: cover; background-position: center; }
+        
+        .info { padding: 30px; text-align: center; }
+        .info h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin: 0 0 10px 0; color: var(--rustic-dark); }
+        .info p { font-size: 0.9rem; line-height: 1.6; color: #666; margin-bottom: 20px; }
+        .precio { color: var(--rustic-accent); font-weight: bold; font-size: 1.4rem; border-top: 1px solid #eee; padding-top: 15px; display: block; }
+
+        /* Sección Galería */
+        .galeria-seccion { margin-top: 100px; padding-top: 60px; border-top: 1px solid #dcd8c8; }
+        .galeria-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+            grid-auto-rows: 200px;
+            gap: 15px; 
+        }
+        .galeria-item { background-size: cover; background-position: center; transition: 0.3s; cursor: pointer; border-radius: 4px; }
+        .galeria-item:hover { filter: brightness(1.2); transform: scale(1.02); }
+        
+        /* Para que algunas fotos sean más grandes en la galería */
+        .grande { grid-column: span 2; grid-row: span 2; }
+
+        @media (max-width: 768px) {
+            h2 { font-size: 2rem; }
+            .grande { grid-column: auto; grid-row: auto; }
+        }
     </style>
 </head>
 <body>
     <nav>
         <a href="index.html">Inicio</a>
-        <a href="alojamientos.html">Alojamientos</a>
+        <a href="alojamientos.html">Alojamiento</a>
         <a href="contacto.html">Contacto</a>
     </nav>
-    <h1 style="text-align: center; margin-top: 40px;">Elegí tu lugar</h1>
-    <div class="grid">
-        <div class="card">
-            <div style="height: 200px; background: #ccc;"></div> <div class="info">
-                <h3>Cabaña Familiar</h3>
-                <p>Hasta 5 personas. Vista al lago y parrilla propia.</p>
-                <p class="precio">$85.000 / noche</p>
+
+    <div class="container">
+        <h2>Nuestras Unidades</h2>
+        <p class="subtitulo">Calidez y Confort en cada rincón</p>
+
+        <div class="grid">
+            <div class="card">
+                <div class="img-placeholder" style="background-image: url('https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg');"></div>
+                <div class="info">
+                    <h3>Cabaña del Bosque</h3>
+                    <p>Capacidad: 4 personas. Dos dormitorios, cocina completa y deck privado con parrilla.</p>
+                    <span class="precio">$85.000 / noche</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="img-placeholder" style="background-image: url('https://images.pexels.com/photos/206648/pexels-photo-206648.jpeg');"></div>
+                <div class="info">
+                    <h3>Cabaña Familiar</h3>
+                    <p>Capacidad: 6 personas. Amplio living con hogar a leña, 3 dormitorios y vista al lago.</p>
+                    <span class="precio">$120.000 / noche</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="img-placeholder" style="background-image: url('https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg');"></div>
+                <div class="info">
+                    <h3>Apart Monoambiente</h3>
+                    <p>Ideal para parejas. Diseño integrado premium, kitchenette y jacuzzi con vista.</p>
+                    <span class="precio">$55.000 / noche</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="img-placeholder" style="background-image: url('https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg');"></div>
+                <div class="info">
+                    <h3>Apart 2 Ambientes</h3>
+                    <p>Capacidad: 4 personas. Dormitorio principal independiente y sofá cama en living comedor.</p>
+                    <span class="precio">$72.000 / noche</span>
+                </div>
             </div>
         </div>
-        <div class="card">
-            <div style="height: 200px; background: #bbb;"></div>
-            <div class="info">
-                <h3>Apartamento Studio</h3>
-                <p>Ideal parejas. Equipamiento premium y wifi.</p>
-                <p class="precio">$55.000 / noche</p>
+
+        <div class="galeria-seccion">
+            <h2>Galería del Refugio</h2>
+            <p class="subtitulo">Postales de nuestro paraíso</p>
+            <div class="galeria-grid">
+                <div class="galeria-item grande" style="background-image: url('https://images.pexels.com/photos/2335126/pexels-photo-2335126.jpeg');"></div>
+                <div class="galeria-item" style="background-image: url('https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg');"></div>
+                <div class="galeria-item" style="background-image: url('https://images.pexels.com/photos/206648/pexels-photo-206648.jpeg');"></div>
+                <div class="galeria-item" style="background-image: url('https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg');"></div>
+                <div class="galeria-item" style="background-image: url('https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg');"></div>
+                <div class="galeria-item grande" style="background-image: url('https://images.pexels.com/photos/2440024/pexels-photo-2440024.jpeg');"></div>
             </div>
         </div>
     </div>
+
+    <footer style="padding: 60px 0; text-align: center; background: var(--rustic-dark); color: rgba(244, 241, 232, 0.6); margin-top: 100px;">
+        <p>EL REFUGIO | Experiencia de Montaña © 2025</p>
+    </footer>
 </body>
 </html>

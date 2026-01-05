@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Refugio | Cabañas Premium & Experiencia de Montaña</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rustic-dark: #2c241b; /* Marrón madera profunda */
+            --rustic-light: #f4f1e8; /* Beige crema */
+            --rustic-accent: #c4a661; /* Dorado mate */
+            --text-gray: #555;
+        }
+
+        body { font-family: 'Montserrat', sans-serif; background: var(--rustic-light); color: var(--rustic-dark); margin: 0; }
+        
+        /* Navegación Refinada */
+        nav { 
+            background: var(--rustic-dark); 
+            padding: 25px; 
+            text-align: center; 
+            border-bottom: 2px solid var(--rustic-accent); 
+        }
+        nav a { 
+            color: var(--rustic-light); 
+            margin: 0 20px; 
+            text-decoration: none; 
+            font-family: 'Playfair Display', serif; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            font-size: 0.8rem; 
+            transition: 0.3s;
+        }
+        nav a:hover { color: var(--rustic-accent); }
+
+        /* Portada de Impacto */
+        .hero { 
+            height: 60vh; 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg') center/cover;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            color: white; text-align: center;
+        }
+        h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0; }
+        .hero p { letter-spacing: 5px; font-size: 0.9rem; text-transform: uppercase; margin-top: 10px; }
+
+        /* Texto de Demostración ZENITH */
+        .demo-info { padding: 60px 20px; text-align: center; background: white; }
+        .demo-info p { max-width: 750px; margin: 0 auto; line-height: 1.8; font-style: italic; color: var(--text-gray); font-size: 1rem; }
+
+        /* Sección de Pagos y Promociones */
+        .pagos-promos { padding: 80px 20px; background: #ece8d9; border-top: 1px solid #dcd8c8; text-align: center; }
+        .contenedor-flex { display: flex; flex-wrap: wrap; justify-content: center; gap: 60px; max-width: 1100px; margin: 0 auto; }
+        
+        .columna { flex: 1; min-width: 320px; }
+        h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 30px; color: var(--rustic-dark); }
+        
+        /* Estilos de los Logos */
+        .logos-grid { display: flex; justify-content: center; align-items: center; gap: 35px; flex-wrap: wrap; margin-top: 20px; }
+        .logo-img { 
+            height: 35px; 
+            filter: grayscale(100%) contrast(1.2); 
+            opacity: 0.7; 
+            transition: 0.4s; 
+        }
+        .logo-img:hover { filter: none; opacity: 1; transform: scale(1.1); }
+
+        /* Tarjetas de Promoción */
+        .promo-card { 
+            background: var(--rustic-dark); 
+            color: var(--rustic-accent); 
+            padding: 25px; 
+            border-radius: 2px; 
+            margin-bottom: 20px; 
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .promo-highlight { background: var(--rustic-accent); color: var(--rustic-dark); }
+
+        .btn { 
+            display: inline-block; 
+            background: var(--rustic-accent); 
+            color: var(--rustic-dark); 
+            padding: 18px 40px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-top: 30px; 
+            transition: 0.3s; 
+        }
+        .btn:hover { background: #b39552; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+        footer { padding: 50px 0; text-align: center; background: var(--rustic-dark); color: rgba(244, 241, 232, 0.5); font-size: 0.8rem; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="indexdemos.html">Inicio</a>
+        <a href="alojamientos.html">Alojamiento</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <header class="hero">
+        <h1>El Refugio</h1>
+        <p>Experiencia Rústica de Lujo</p>
+        <a href="alojamientos.html" class="btn">Ver Disponibilidad</a>
+    </header>
+
+    <section class="demo-info">
+        <div class="container">
+            <p>
+                "Esta es una página de demostración diseñada por <strong>ZENITH</strong> para ilustrar el potencial de un sitio web multi-página en el sector turístico. 
+                Cada detalle, desde la navegación hasta la estética rústica, está pensado para brindar una experiencia de usuario fluida y profesional."
+            </p>
+        </div>
+    </section>
+
+    <section class="pagos-promos">
+        <div class="contenedor-flex">
+            <div class="columna">
+                <h3>Medios de Pago</h3>
+                <p>Aceptamos tarjetas de crédito, débito y pagos digitales:</p>
+                
+                <div class="logos-grid">
+                    <img src="../imagenes/descarga.jpg" class="logo-img" alt="Banco Patagonia">
+                    <img src="../imagenes/descarga (1).png" class="logo-img" alt="Santander">
+                    <img src="../imagenes/descarga.png" class="logo-img" alt="Mercado Pago">
+                    <img src="../imagenes/unnamed.webp" class="logo-img" alt="Lemon Cash">
+                </div>
+                <p style="margin-top: 30px; font-weight: 600; font-size: 0.9rem;">Pagos seguros y transferencias inmediatas.</p>
+            </div>
+
+            <div class="columna">
+                <h3>Promociones Especiales</h3>
+                <div class="promo-card">
+                    3 CUOTAS SIN INTERÉS<br>
+                    <span style="font-size: 0.75rem; font-weight: 400; color: white; letter-spacing: 1px;">Con tarjetas de Banco Patagonia y Santander</span>
+                </div>
+                <div class="promo-card promo-highlight">
+                    15% OFF PAGANDO CON LEMON<br>
+                    <span style="font-size: 0.75rem; font-weight: 400; color: #2c241b; letter-spacing: 1px;">Válido para reservas directas de temporada baja</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>EL REFUGIO | Proyecto de Portafolio ZENITH © 2025</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZENITH - Tropical Lima</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde-zenith: #4A7C44;
+            --fondo-crema: #FFFBEB;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--fondo-crema);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden; /* Evita que las limas generen scroll lateral */
+            position: relative;
+        }
+
+        /* --- Estilo del Botón Volver --- */
+        .btn-volver {
+            align-self: flex-start;
+            text-decoration: none;
+            color: var(--verde-zenith);
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            z-index: 10; /* Para que siempre esté arriba de las limas */
+        }
+
+        /* --- Posicionamiento de las Limas Decorativas --- */
+        .lima-decorativa {
+            position: absolute;
+            width: 250px; /* Tamaño de las limas flotantes */
+            opacity: 0.8;
+            z-index: 1;
+            pointer-events: none; /* Para que no interfieran al hacer clic */
+        }
+
+        .lima-1 { top: -50px; left: -100px; transform: rotate(-15deg); }
+        .lima-2 { top: 40%; right: -80px; transform: rotate(20deg); }
+        .lima-3 { bottom: -50px; left: -50px; transform: rotate(110deg); }
+
+        /* --- Contenedor del Menú --- */
+        .carta-box {
+            position: relative;
+            z-index: 5;
+            max-width: 500px;
+            width: 100%;
+            background: white;
+            border: 3px solid var(--verde-zenith);
+            padding: 60px 40px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        header h1 {
+            color: var(--verde-zenith);
+            font-size: 3.5rem;
+            margin: 0;
+            letter-spacing: 5px;
+        }
+
+        .tagline {
+            font-family: 'Dancing Script', cursive;
+            color: var(--verde-zenith);
+            font-size: 1.8rem;
+            margin-top: -10px;
+            margin-bottom: 40px;
+        }
+
+        /* --- Ítems del Menú --- */
+        .menu-item {
+            margin-bottom: 40px;
+        }
+
+        .menu-item h2 {
+            color: var(--verde-zenith);
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0 0 5px 0;
+        }
+
+        .descripcion {
+            font-size: 0.9rem;
+            color: #4A7C44;
+            margin-bottom: 8px;
+        }
+
+        .precio {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--verde-zenith);
+        }
+
+        .divisor {
+            width: 60%;
+            height: 1px;
+            background-color: #B2C9AD;
+            margin: 20px auto;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: var(--verde-zenith);
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="imagenes/pngtree-lemon-cut-half-png-image_2693789.jpg" class="lima-decorativa lima-1" alt="decoración">
+    <img src="imagenes/pngtree-lemon-cut-half-png-image_2693789.jpg" class="lima-decorativa lima-2" alt="decoración">
+    <img src="imagenes/pngtree-lemon-cut-half-png-image_2693789.jpg" class="lima-decorativa lima-3" alt="decoración">
+
+    <a href="galeria-cartas.html" class="btn-volver">← Volver a la Galería</a>
+
+    <div class="carta-box">
+        <header>
+            <h1>ZENITH</h1>
+            <p class="tagline">Drinks para todas las estaciones</p>
+        </header>
+
+        <div class="menu-item">
+            <h2>Margarita</h2>
+            <p class="descripcion">Tequila, sal, jugo de limón y licor de naranja</p>
+            <p class="precio">$10000</p>
+            <div class="divisor"></div>
+        </div>
+
+        <div class="menu-item">
+            <h2>Mojito</h2>
+            <p class="descripcion">Ron blanco, agua con gas, jugo de lima, azúcar, menta y hielo</p>
+            <p class="precio">$10000</p>
+            <div class="divisor"></div>
+        </div>
+
+        <div class="menu-item">
+            <h2>Caipirinha</h2>
+            <p class="descripcion">Caipirinha clásica con cachaça, lima, azúcar y mucho hielo</p>
+            <p class="precio">$10000</p>
+            <div class="divisor"></div>
+        </div>
+
+        <div class="menu-item">
+            <h2>Negroni</h2>
+            <p class="descripcion">Gin, Cinzano Vermut Rosso, Campari decorado con cáscara de naranja</p>
+            <p class="precio">$10000</p>
+        </div>
+
+        <footer>
+            POR FAVOR INFORME AL PERSONAL SOBRE<br>
+            CUALQUIER INTOLERANCIA O POSIBLE ALERGIA.
+        </footer>
+    </div>
+
+</body>
+</html>

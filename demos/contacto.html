@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | El Refugio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root { --rustic-dark: #2c241b; --rustic-light: #f4f1e8; --rustic-accent: #c4a661; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--rustic-light); margin: 0; }
+        nav { background: var(--rustic-dark); padding: 25px; text-align: center; border-bottom: 2px solid var(--rustic-accent); }
+        nav a { color: var(--rustic-light); margin: 0 20px; text-decoration: none; font-family: 'Playfair Display', serif; text-transform: uppercase; font-size: 0.8rem; }
+        .form-box { max-width: 500px; margin: 80px auto; background: white; padding: 40px; border-top: 4px solid var(--rustic-accent); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        h2 { font-family: 'Playfair Display', serif; text-align: center; color: var(--rustic-dark); }
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; font-family: 'Montserrat', sans-serif; box-sizing: border-box; }
+        button { width: 100%; background: var(--rustic-dark); color: white; border: none; padding: 15px; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; transition: 0.3s; }
+        button:hover { background: var(--rustic-accent); color: var(--rustic-dark); }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="alojamientos.html">Alojamiento</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="form-box">
+        <h2>Consultas</h2>
+        <form>
+            <input type="text" placeholder="Nombre completo">
+            <input type="email" placeholder="Email">
+            <textarea rows="5" placeholder="¿En qué fechas te gustaría visitarnos?"></textarea>
+            <button type="button">Enviar Mensaje</button>
+        </form>
+    </div>
+</body>
+</html>

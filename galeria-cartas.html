@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZENITH - Ejemplos de Cartas Digitales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Estilos Base (Similares a tu sitio principal) --- */
+        :root {
+            --color-principal: #000; /* Negro ZENITH */
+            --color-acento: #4A7C44; /* El verde de la carta de tragos, para conectar */
+            --fondo-gris: #f9f9f9;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            background-color: var(--fondo-gris);
+            color: #333;
+        }
+        .contenedor { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        
+        /* Header Simple */
+        header { text-align: center; padding: 60px 20px; background: white; }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--color-principal);
+        }
+        p.bajada { color: #666; max-width: 600px; margin: 0 auto; }
+        .btn-volver { display: inline-block; margin-top: 20px; text-decoration: none; color: #666; font-size: 0.9rem; }
+
+        /* Grilla de Opciones */
+        .grilla-tipos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 60px 0;
+        }
+
+        /* Tarjeta de Tipo de Carta */
+        .card-tipo {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+        .card-tipo:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            border-color: var(--color-acento);
+        }
+        
+        /* Marcador de posición para la imagen (luego pondrás capturas reales) */
+        .placeholder-img {
+            height: 180px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #999;
+        }
+        
+        .contenido-card { padding: 25px; }
+        h3 { margin: 0 0 10px 0; font-family: 'Playfair Display', serif; }
+        p { font-size: 0.9rem; color: #666; margin-bottom: 20px; }
+
+        .btn-ver-ejemplo {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: var(--color-principal);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn-ver-ejemplo:hover { background-color: var(--color-acento); }
+
+        /* Estilo específico para el que ya está hecho */
+        .hecho .placeholder-img { background-color: #E8F5E9; color: var(--color-acento); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="contenedor">
+            <h1>Galería de Cartas Digitales</h1>
+            <p class="bajada">Elegí el estilo que mejor se adapte a tu negocio. Todos los diseños son rápidos, modernos y fáciles de leer en cualquier celular.</p>
+            <a href="index.html" class="btn-volver">← Volver al inicio de ZENITH</a>
+        </div>
+    </header>
+
+    <section class="contenedor">
+        <div class="grilla-tipos">
+            
+            <article class="card-tipo hecho">
+                <div class="placeholder-img">🍹</div>
+                <div class="contenido-card">
+                    <h3>Estilo Bar & Tragos</h3>
+                    <p>Diseño fresco y visual, ideal para cócteles, cervecerías y vida nocturna.</p>
+                    <a href="ejemplo-tragos-lima.html" class="btn-ver-ejemplo">Ver Demo Online</a>
+                </div>
+            </article>
+
+            <article class="card-tipo">
+                <div class="placeholder-img">🥩</div>
+                <div class="contenido-card">
+                    <h3>Estilo Restaurante Clásico</h3>
+                    <p>Organizado por entradas, principales y postres. Elegante y claro para cenas.</p>
+                   <a href="ejemplo-restaurante-completo.html" class="btn-ver-ejemplo">Ver Demo Online</a>
+                </div>
+            </article>
+
+            <article class="card-tipo">
+                <div class="placeholder-img">☕</div>
+                <div class="contenido-card">
+                    <h3>Estilo Cafetería & Brunch</h3>
+                    <p>Ideal para menús más cortos, cafetería de especialidad y pastelería.</p>
+                   <a href="ejemplo-tragos-naranja.html" class="btn-ver-ejemplo">Ver Demo Online</a>
+            </article>
+
+        </div>
+    </section>
+
+</body>
+</html>

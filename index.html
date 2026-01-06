@@ -128,6 +128,27 @@
         color: #000;
         letter-spacing: 1px;
     }
+    /* Estilos para los Mockups en Info y Ejemplos */
+.img-mockup {
+    width: 100%; /* Que ocupe todo el ancho disponible de la tarjeta */
+    height: auto; /* Mantiene la proporción para que no se deforme */
+    border-radius: 10px; /* Bordes suavemente redondeados */
+    margin-bottom: 25px; /* Espacio entre la imagen y el título */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08); /* Sombra suave para dar profundidad */
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Animación suave al pasar el mouse */
+}
+
+/* Efecto hover: al pasar el mouse sobre la tarjeta, la imagen se levanta */
+.card-ejemplo:hover .img-mockup {
+    transform: translateY(-8px); /* Se mueve 8 pixeles hacia arriba */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12); /* La sombra crece para dar efecto 3D */
+}
+
+/* Ajuste para el cuerpo de la tarjeta */
+.card-cuerpo {
+    text-align: center; /* Centramos todo el contenido */
+}
+
             
     </style>
 </head>
@@ -182,6 +203,22 @@
             </div>
         </div>
     </section>
+    <section style="background: #000; color: #fff; padding: 80px 0;">
+    <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center;">
+        <div>
+            <h4 style="letter-spacing: 2px;">ENFOQUE TÉCNICO</h4>
+            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">Soluciones basadas en ingeniería, no solo en estética.</p>
+        </div>
+        <div>
+            <h4 style="letter-spacing: 2px;">SOPORTE LOCAL</h4>
+            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">Atención personalizada en nuestra zona.</p>
+        </div>
+        <div>
+            <h4 style="letter-spacing: 2px;">OPTIMIZACIÓN</h4>
+            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">Sistemas livianos, rápidos y fáciles de usar.</p>
+        </div>
+    </div>
+</section>
 
     <section id="packs" class="section-padding">
     <div class="container">
@@ -228,39 +265,44 @@
     </section>
 
     <section id="info-ejemplos" class="seccion-info-ejemplos">
-        <div class="contenedor-ejemplos">
-            <div class="intro-texto">
-                <h2 class="titulo-zenith">Info y Ejemplos</h2>
-                <p class="bajada-zenith">
-                    Crear una presencia digital no tiene por qué ser complicado. Acá podés ver cómo transformamos ideas en herramientas reales para tu negocio.
-                </p>
-            </div>
-            <div class="grilla-proyectos">
-                <article class="card-ejemplo">
-                    <div class="card-cuerpo">
-                        <span class="emoji-categoria">📂</span>
-                        <h3>Carta Digital QR</h3>
-                        <p>Mantené tus precios al día y mostrá tus productos de forma atractiva en el celular de tus clientes.</p>
-                        <a href="galeria-cartas.html" class="link-demo">Ver Tipos de Cartas →</a>
-                    </div>
-                </article>
-                <article class="card-ejemplo">
-                    <div class="card-cuerpo">
-                        <span class="emoji-categoria">🗂️</span>
-                        <h3>Sitio Web Multi-página</h3>
-                        <p>La opción ideal para empresas que necesitan organizar mucha información en secciones separadas.</p>
-                        <a href="demos/indexdemos.html" target="_blank" class="link-demo">Ver Ejemplo Real →</a>
-                    </div>
-                </article>
-                <div class="aclaracion-onepage">
-                <p>
-                    <strong>Nota de Diseño:</strong> Esta plataforma de <strong>ZENITH</strong> que estás navegando es, en su mayoría, un ejemplo real de un sitio <strong>One-Page</strong>. 
-                    Este formato es ideal para negocios que buscan una navegación rápida, directa y moderna en una sola pantalla.
-                </p>
-            </div>
-            </div>
+    <div class="contenedor-ejemplos">
+        <div class="intro-texto">
+            <h2 class="titulo-zenith">Info y Ejemplos</h2>
+            <p class="bajada-zenith">
+                Crear una presencia digital no tiene por qué ser complicado. Acá podés ver cómo transformamos ideas en herramientas reales para tu negocio.
+            </p>
         </div>
-    </section>
+
+        <div class="grilla-proyectos">
+            <article class="card-ejemplo">
+                <div class="card-cuerpo">
+                    <img src="imagenes/d8TqHBd5fuB.png" alt="Mockup Carta Digital en Celular" class="img-mockup">
+                    
+                    <h3>Carta Digital QR</h3>
+                    <p>Mantené tus precios al día y mostrá tus productos de forma atractiva en el celular de tus clientes.</p>
+                    <a href="galeria-cartas.html" class="link-demo">Ver Tipos de Cartas →</a>
+                </div>
+            </article>
+
+            <article class="card-ejemplo">
+                <div class="card-cuerpo">
+                    <img src="imagenes/6e81f610234.png" alt="Mockup Sitio Web Cabañas en Notebook" class="img-mockup">
+                    
+                    <h3>Sitio Web Multi-página</h3>
+                    <p>La opción ideal para empresas que necesitan organizar mucha información en secciones separadas.</p>
+                    <a href="demos/indexdemos.html" target="_blank" class="link-demo">Ver Ejemplo Real →</a>
+                </div>
+            </article>
+        </div>
+
+        <div class="aclaracion-onepage">
+             <p>
+                <strong>Nota de Diseño:</strong> Esta plataforma de <strong>ZENITH</strong> que estás navegando es, en su mayoría, un ejemplo real de un sitio <strong>One-Page</strong>. 
+                Este formato es ideal para negocios que buscan una navegación rápida, directa y moderna en una sola pantalla.
+            </p>
+        </div>
+    </div>
+</section>
 
     <section id="contacto" class="section-padding">
         <div class="container">

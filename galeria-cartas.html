@@ -16,7 +16,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; background: white; color: var(--text-dark); line-height: 1.6; }
 
-        /* Navegación */
+        
         nav {
             padding: 20px 0; display: flex; justify-content: center;
             background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px);
@@ -27,7 +27,7 @@
             font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
         }
 
-        /* Sección Galería */
+        
         .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
         .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; text-align: center; margin-bottom: 10px; }
         .section-subtitle { text-align: center; color: #666; margin-bottom: 50px; font-size: 0.95rem; }
@@ -48,14 +48,14 @@
         .card-demo h3 { font-family: 'Playfair Display'; font-size: 1.4rem; margin-bottom: 15px; }
         .card-demo p { font-size: 0.9rem; color: #555; margin-bottom: 25px; }
 
-        /* Botón Estilo Zenith */
+        
         .cta-demo {
             padding: 12px 25px; background: var(--accent-chrome); border: none;
             color: black; font-weight: 600; font-size: 0.75rem; letter-spacing: 2px;
             cursor: pointer; text-transform: uppercase; border-radius: 4px;
         }
 
-        /* Estilos del Modal de Galería Cómoda */
+        
         #modal-galeria {
             position: fixed; inset: 0; background: rgba(0,0,0,0.95);
             display: none; justify-content: center; align-items: center; z-index: 2000;
@@ -134,7 +134,7 @@
             const titulo = document.getElementById('titulo-galeria');
             contenedor.innerHTML = '';
 
-            // Importante: Renombrá tus archivos en la carpeta imagenes para que coincidan (sin espacios)
+            
             if(estilo === 'bar') {
                 titulo.innerText = 'Demos: Bar & Tragos';
                 contenedor.innerHTML = `

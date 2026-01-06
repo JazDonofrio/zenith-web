@@ -11,12 +11,12 @@
             --color-verde: #27AE60;
             --fondo-beige: #FDF6E3;
             --texto-oscuro: #333;
-            --borde-fino: #333; /* Color del borde exterior */
+            --borde-fino: #333; 
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #fff; /* Fondo de la página web */
+            background-color: #fff; 
             margin: 0;
             padding: 20px;
             display: flex;
@@ -34,17 +34,17 @@
             display: inline-block;
         }
 
-        /* --- Contenedor Principal del Menú (El marco exterior) --- */
+        
         .carta-contenedor {
             background-color: var(--fondo-beige);
-            border: 2px solid var(--borde-fino); /* El borde fino de la imagen */
+            border: 2px solid var(--borde-fino); 
             padding: 30px;
             max-width: 1000px;
             width: 100%;
-            box-sizing: border-box; /* Para que el padding no agrande el ancho */
+            box-sizing: border-box; 
         }
 
-        /* --- Títulos estilo "Marker" --- */
+        
         h1, h2 {
             font-family: 'Permanent Marker', cursive;
             text-transform: uppercase;
@@ -81,7 +81,7 @@
             margin-bottom: 20px;
         }
 
-        /* --- Estilos de los Ítems --- */
+        
         .item {
             display: flex;
             justify-content: space-between;
@@ -97,11 +97,11 @@
             margin-left: 10px;
         }
 
-        /* --- Tipos de Cajas --- */
+        
         .caja {
             border-radius: 25px;
             padding: 25px;
-            height: 100%; /* Para que ocupen toda la altura de su celda */
+            height: 100%; 
             box-sizing: border-box;
         }
 
@@ -130,43 +130,43 @@
 
         .seccion-postres h2 { color: var(--color-verde); }
 
-        /* --- GRILLA (Layout para PC) --- */
+        
         .menu-grid {
             display: grid;
-            /* 3 columnas: izquierda, centro, derecha */
+            
             grid-template-columns: 1fr 1fr 1fr; 
-            grid-template-rows: auto auto auto; /* Filas automáticas */
-            gap: 30px; /* Espacio entre cajas */
-            align-items: start; /* Alinear elementos arriba */
+            grid-template-rows: auto auto auto; 
+            gap: 30px; 
+            align-items: start; 
         }
 
-        /* Posicionamiento exacto de cada elemento en la grilla */
+        
         .area-titulo { grid-column: 2 / 3; grid-row: 1 / 2; text-align: center; }
-        .area-calientes { grid-column: 1 / 2; grid-row: 1 / 3; } /* Ocupa 2 filas */
+        .area-calientes { grid-column: 1 / 2; grid-row: 1 / 3; } 
         .area-bebidas { grid-column: 3 / 4; grid-row: 1 / 2; }
-        .area-frios { grid-column: 2 / 3; grid-row: 2 / 4; } /* Ocupa 2 filas */
+        .area-frios { grid-column: 2 / 3; grid-row: 2 / 4; } 
         .area-menu-dia { grid-column: 1 / 2; grid-row: 3 / 4; }
         .area-postres { grid-column: 3 / 4; grid-row: 2 / 4; }
 
-        /* --- RESPONSIVE (Para Celular) --- */
+        
         @media (max-width: 768px) {
             .carta-contenedor { padding: 15px; }
             
             .menu-grid {
-                /* En celular, todo en una sola columna */
+                
                 grid-template-columns: 1fr;
                 grid-template-rows: auto;
                 gap: 20px;
             }
 
-            /* Reseteamos las posiciones para que se apilen en orden */
+            
             .area-titulo, .area-calientes, .area-bebidas, 
             .area-frios, .area-menu-dia, .area-postres {
                 grid-column: auto;
                 grid-row: auto;
             }
 
-            /* Ajustamos el orden visual para el celular */
+            
             .area-titulo { order: 1; }
             .area-calientes { order: 2; }
             .area-bebidas { order: 3; }
@@ -177,13 +177,13 @@
             h1.titulo-principal { font-size: 3rem; }
             h2.titulo-seccion { font-size: 1.8rem; }
         }
-        /* --- Centrado exacto del encabezado --- */
+        
         .area-titulo {
         grid-column: 2 / 3;
         grid-row: 1 / 2;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centra horizontalmente el título y el banner */
+        align-items: center; 
         justify-content: center;
         text-align: center;
     margin-bottom: 20px;

@@ -149,7 +149,72 @@
     text-align: center; 
 }
 
-            
+
+.seccion-metodo-pago {
+    background-color: #fcfcfc;
+    padding: 100px 20px;
+    border-top: 1px solid #eee;
+}
+
+.metodo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.metodo-card {
+    text-align: center;
+    padding: 30px;
+    background: white;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.metodo-card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.numero-paso {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #eee;
+    display: block;
+    margin-bottom: -25px;
+}
+
+.metodo-card h3 {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    color: #111;
+}
+
+.metodo-card p {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.info-pagos {
+    margin-top: 60px; }  
+    /* Mejora la visualización de listas dentro del modal */
+#m-desc ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 20px 0;
+}
+
+#m-desc li {
+    margin-bottom: 10px;
+    color: #444;
+}
+
+#m-desc b {
+    color: #000;
+}  
     </style>
 </head>
 <body>
@@ -158,6 +223,8 @@
         <a href="#inicio">Inicio</a>
         <a href="#servicios">Servicios</a>
         <a href="#packs">Packs</a>
+        <a href="#info-ejemplos">Info y ejemplos</a>
+        <a href="#metodo-pago">Como nos manejamos</a>
         <a href="#contacto">Contacto</a>
     </nav>
 
@@ -172,7 +239,7 @@
         <div class="container">
             <h2 class="category-title">Presencia Digital</h2>
             <div class="grid-services">
-                <div class="card" onclick="openM('Carta Digital', 'Versión electrónica del menú, accesible desde un dispositivo móvil usualmente escaneando un código QR, que permite ver platos, bebidas, precios y hasta fotos.', '$20.000')">
+                <div class="card" onclick="openM('Carta Digital', 'Versión electrónica del menú, accesible desde un dispositivo móvil usualmente escaneando un código QR, que permite ver platos, bebidas, precios y hasta fotos.', '$25.000')">
                     <span class="plus">+</span><span>📑</span><h3>Carta Digital</h3>
                 </div>
                 <div class="card" onclick="openM('Página Web Simple', 'Desarrollo de sitio One-Page profesional y adaptable. Por mas que no quieras vender tu producto o servicios la pagina web es una gran oportunidad para llegar a mas gente. <br><br><strong>Nota:</strong> No incluye costos de dominio ni hosting pero si la orientacion a conseguir estos.', '$70.000')">
@@ -181,23 +248,23 @@
                 <div class="card" onclick="openM('Desarrollo Web Multi-página', 'Una página web organizada por pestañas o secciones separadas (por ejemplo: Inicio, Quiénes Somos, Servicios y Contacto). <br><br><strong>Nota:</strong> No incluye costos de dominio ni hosting pero si la orientacion a conseguir estos.', '$85.000')">
                     <span class="plus">+</span><span>🗂️</span><h3>Desarrollo Web Multi-página</h3>
                 </div>
-                <div class="card" onclick="openM('Diseño de Flyers', 'Diseño de piezas gráficas publicitarias para redes sociales o impresión.', '$6.000')">
+                <div class="card" onclick="openM('Diseño de Flyers', 'Diseño de piezas gráficas publicitarias para redes sociales o impresión.', '$8.000')">
                     <span class="plus">+</span><span>🎨</span><h3>Diseño Flyers</h3>
                 </div>
-                <div class="card" onclick="openM('Asistente Digital', 'Configuración de herramientas digitales, bots de respuesta o automatización básica.', '$15.000')">
+                <div class="card" onclick="openM('Asistente Digital', 'Configuración de herramientas digitales, bots de respuesta o automatización básica.', '$20.000')">
                     <span class="plus">+</span><span>🤖</span><h3>Asistente Digital</h3>
                 </div>
             </div>
 
             <h2 class="category-title">Sistemas & Asesoría</h2>
             <div class="grid-services">
-                <div class="card" onclick="openM('Instalación de S.O.', 'Formateo completo e instalación limpia de Windows o Linux. Incluye configuración de drivers y optimización para un rendimiento máximo del equipo.', '$18.000')">
+                <div class="card" onclick="openM('Instalación de S.O.', 'Formateo completo e instalación limpia de Windows o Linux. Incluye configuración de drivers y optimización para un rendimiento máximo del equipo.', '$20.000')">
                     <span class="plus">+</span><span>⚙️</span><h3>Instalación de S.O.</h3>
                 </div>
-                <div class="card" onclick="openM('Paquete Office', 'Instalación de Word, Excel y PowerPoint. Incluye la activación completa de todas las herramientas para estudio o trabajo.', '$10.000')">
+                <div class="card" onclick="openM('Paquete Office', 'Instalación de Word, Excel y PowerPoint. Incluye la activación completa de todas las herramientas para estudio o trabajo.', '$15.000')">
                     <span class="plus">+</span><span>📊</span><h3>Paquete Office</h3>
                 </div>
-                <div class="card" onclick="openM('Consultoría de Hardware', 'Asesoría técnica para la compra de una PC nueva o actualización de componentes. Te indicamos qué equipo es mejor según tu presupuesto y necesidades. <br><br><strong>Nota:</strong> No incluye venta ni instalación de partes físicas.', '$12.000')">
+                <div class="card" onclick="openM('Consultoría de Hardware', 'Asesoría técnica para la compra de una PC nueva o actualización de componentes. Te indicamos qué equipo es mejor según tu presupuesto y necesidades. <br><br><strong>Nota:</strong> No incluye venta ni instalación de partes físicas.', '$15.000')">
                     <span class="plus">+</span><span>🖥️</span><h3>Consultoría Hardware</h3>
                 </div>
             </div>
@@ -225,44 +292,57 @@
         <h2 style="color: var(--rustic-light);">PACKS PROMOCIONALES DIGITALES</h2>
         <div class="pack-grid">
             
-            <div class="pack-card" onclick="openM('Pack Gastro Digital', 'La solución para bares y restos. Incluye: Carta Digital QR + 2 Diseños de Flyers para redes + Configuración de WhatsApp Business.', '$28.000')">
+            <div class="pack-card" onclick="openM('Pack Gastro Digital', 
+                'La solución definitiva para modernizar tu bar o restaurante. <br><br><b>¿Qué incluye?</b><ul style=\'text-align:left; margin-top:10px; font-size:0.9rem; line-height:1.8;\'><li>✅ <b>Carta Digital QR:</b> Cambiá precios sin volver a imprimir.</li><li>✅ <b>Diseño Gráfico:</b> 2 flyers profesionales para tus redes.</li><li>✅ <b>WhatsApp Business:</b> Perfil configurado con tus horarios y fotos.</li></ul>', 
+                '$42.000')">
                 <div class="discount-badge">MÁS VENDIDO</div>
                 <h3>Gastro Digital</h3>
-                <p>Ideal para locales gastronómicos que buscan modernizar su atención.</p>
+                <p>Digitalizá tu menú y agilizá la atención de tus clientes de forma profesional.</p>
             </div>
 
-            <div class="pack-card" onclick="openM('Pack Turismo Premium', 'El servicio más completo. Incluye: Sitio Web Multi-página (estilo Cabañas) + QR Wi-Fi para huéspedes.', '$95.000')">
+            <div class="pack-card" onclick="openM('Pack Turismo Premium', 
+                'Diseñado para dueños de cabañas y hoteles que buscan distinguirse. <br><br><b>¿Qué incluye?</b><ul style=\'text-align:left; margin-top:10px; font-size:0.9rem; line-height:1.8;\'><li>✅ <b>Web Multi-página:</b> Secciones para Galería, Ubicación y Servicios.</li><li>✅ <b>Diseño Exclusivo:</b> Estética enfocada en el confort y relax.</li><li>✅ <b>QR Wi-Fi:</b> Placa lista para que tus huéspedes se conecten sin preguntar.</li></ul>', 
+                '$130.000')">
                 <div class="discount-badge">PREMIUM</div>
                 <h3>Turismo Premium</h3>
-                <p>Diseñado para complejos de cabañas y hoteles que buscan exclusividad.</p>
+                <p>Brindá confianza y exclusividad con un sitio web de alto impacto visual.</p>
             </div>
 
-            <div class="pack-card" onclick="openM('Pack Emprendedor', 'Tu primer paso en la red. Incluye: Página Web Simple (One-page) + Diseño de Logo básico + 1 Flyer publicitario.', '$45.000')">
+            <div class="pack-card" onclick="openM('Pack Emprendedor', 
+                'Todo lo que necesitás para lanzar tu negocio al mundo digital hoy mismo. <br><br><b>¿Qué incluye?</b><ul style=\'text-align:left; margin-top:10px; font-size:0.9rem; line-height:1.8;\'><li>✅ <b>Web One-Page:</b> Tu negocio abierto las 24hs en una sola página.</li><li>✅ <b>Identidad Visual:</b> Diseño de logo básico para arrancar con todo.</li><li>✅ <b>Publicidad:</b> 1 flyer de lanzamiento para captar clientes. <br> <br><b>✅Garantía Zenith:</b> 3 meses de mantenimiento básico GRATIS.</li></ul>', 
+                '$80.000')">
                 <div class="discount-badge">-20% OFF</div>
                 <h3>Emprendedor</h3>
-                <p>Para negocios nuevos que necesitan una identidad digital profesional y rápida.</p>
+                <p>La base sólida para que tu nuevo proyecto se vea serio y profesional desde el día 1.</p>
             </div>
 
-            <div class="pack-card" onclick="openM('Pack Asistente Pro', 'Automatización y eficiencia. Incluye: Configuración de Asistente Digital + Optimización de procesos + Capacitación de uso.', '$22.000')">
+            <div class="pack-card" onclick="openM('Pack Asistente Pro', 
+                'Ideal para quienes reciben muchas consultas y pierden tiempo en lo repetitivo. <br><br> <b>¿Qué incluye?</b><ul style=\'text-align:left; margin-top:10px; font-size:0.9rem; line-height:1.8;\'><li>✅ <b>WhatsApp Business:</b> Configuración de catálogo y mensajes.</li><li>✅ <b>Respuestas Rápidas:</b> Atajos para contestar en un segundo.</li><li>✅ <b>Organización:</b> Etiquetas de clientes (Pagos, Envíos).</li><li> ', 
+                '$35.000')">
                 <div class="discount-badge">NUEVO</div>
                 <h3>Asistente Pro</h3>
-                <p>Para dueños de negocios que quieren delegar tareas repetitivas en la tecnología.</p>
+                <p>Automatizá tu atención: respondé más rápido y vendé más sin estar pegado al celular.</p>
             </div>
 
-            <div class="pack-card" onclick="openM('Pack Estudiante Full', 'Prepará tu notebook para el año. Incluye: Instalación de S.O. + Paquete Office completo (activado) + Consultoría técnica para futuras compras.', '$32.000')">
+            <div class="pack-card" onclick="openM('Pack Estudiante Full', 
+                'Prepará tu herramienta de estudio para que rinda al máximo y no te falle. <br><br><b>¿Qué incluye?</b><ul style=\'text-align:left; margin-top:10px; font-size:0.9rem; line-height:1.8;\'><li>✅ <b>Limpieza de Software:</b> Instalación de S.O. optimizado.</li><li>✅ <b>Office Completo:</b> Word, Excel y Powerpoint activados.</li><li>✅ <b>Consultoría:</b> Guía para futuras compras de hardware según tu carrera.</li></ul>', 
+                '$45.000')">
                 <div class="discount-badge">ESTUDIANTES</div>
                 <h3>Estudiante Full</h3>
-                <p>Optimización total de tu equipo de estudio para que nunca te falle en un examen.</p>
+                <p>Tu notebook lista para el año académico: rápida, segura y con todo instalado.</p>
             </div>
 
-            <div class="pack-card" onclick="openM('Pack Oficina Tech', 'Productividad máxima para tu trabajo. Incluye: Instalación de S.O. + Paquete Office (activado) + Configuración de WhatsApp Business.', '$38.000')">
+            <div class="pack-card" onclick="openM('Pack Oficina Tech', 
+                'El combo ideal para profesionales independientes y trabajo remoto. <br><br><b>¿Qué incluye?</b><ul style=\'text-align:left; margin-top:10px; font-size:0.9rem; line-height:1.8;\'><li>✅ <b>Puesta a punto:</b> Sistema operativo configurado para trabajo.</li><li>✅ <b>Herramientas Pro:</b> Paquete Office y aplicaciones de oficina.</li><li>✅ <b>Comunicación:</b> WhatsApp Business para separar lo personal de lo laboral.</li></ul>', 
+                '$55.000')">
                 <div class="discount-badge">PRO</div>
                 <h3>Oficina Tech</h3>
-                <p>La combinación ideal de software y comunicación para profesionales independientes.</p>
+                <p>Productividad máxima: configuramos tu equipo y tus canales de comunicación.</p>
             </div>
-            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="info-ejemplos" class="seccion-info-ejemplos">
     <div class="contenedor-ejemplos">
@@ -279,7 +359,7 @@
                     <img src="imagenes/d8TqHBd5fuB.png" alt="Mockup Carta Digital en Celular" class="img-mockup">
                     
                     <h3>Carta Digital QR</h3>
-                    <p>Mantené tus precios al día y mostrá tus productos de forma atractiva en el celular de tus clientes.</p>
+                    <p>Mantené tus precios al día y mostrá tus productos de forma atractiva en el celular de tus clientes. (Los diseños quedan a gusto del cliente, esto que presentamos son ejemplos de que es una carta digital)</p>
                     <a href="galeria-cartas.html" class="link-demo">Ver Tipos de Cartas →</a>
                 </div>
             </article>
@@ -289,7 +369,7 @@
                     <img src="imagenes/6e81f610234.png" alt="Mockup Sitio Web Cabañas en Notebook" class="img-mockup">
                     
                     <h3>Sitio Web Multi-página</h3>
-                    <p>La opción ideal para empresas que necesitan organizar mucha información en secciones separadas.</p>
+                    <p>La opción ideal para empresas que necesitan organizar mucha información en secciones separadas.(Los diseños quedan a gusto del cliente, esto que presentamos son ejemplos de como es una Web multi-pagina)</p>
                     <a href="demos/indexdemos.html" target="_blank" class="link-demo">Ver Ejemplo Real →</a>
                 </div>
             </article>
@@ -299,6 +379,50 @@
              <p>
                 <strong>Nota de Diseño:</strong> Esta plataforma de <strong>ZENITH</strong> que estás navegando es, en su mayoría, un ejemplo real de un sitio <strong>One-Page</strong>. 
                 Este formato es ideal para negocios que buscan una navegación rápida, directa y moderna en una sola pantalla.
+            </p>
+        </div>
+    </div>
+</section>
+<section id="info-ejemplos" class="seccion-info-ejemplos">
+</section>
+<section id="metodo-pago" class="seccion-metodo-pago">
+    <div class="container">
+        <h2>NUESTRO MÉTODO</h2>
+        <div class="metodo-grid">
+            
+            <div class="metodo-card">
+                <span class="numero-paso">01</span>
+                <h3>Relevamiento</h3>
+                <p>Primero se analiza la solicitud del cliente en el que se pide detalladamente las necesidades, gustos de diseño y tiempo final del proyecto.</p>
+            </div>
+
+            <div class="metodo-card">
+                <span class="numero-paso">02</span>
+                <h3>Planificación</h3>
+                <p>Establecemos la arquitectura del sitio o sistema, mediante un croquis (borrador que sirve para idear el modelo). Una vez aprobado el plan, se realiza el primer pago para iniciar el desarrollo.</p>
+            </div>
+
+            <div class="metodo-card">
+                <span class="numero-paso">03</span>
+                <h3>Desarrollo</h3>
+                <p>Traducimos tus ideas a código profesional. Te mantendremos al tanto del progreso mediante demos privadas en nuestro servidor.</p>
+            </div>
+
+            <div class="metodo-card">
+                <span class="numero-paso">04</span>
+                <h3>Entrega final</h3>
+                <p>Realizamos las pruebas de calidad finales. Una vez que el sistema está a punto, se abona el saldo y realizamos el lanzamiento oficial.</p>
+            </div>
+
+        </div>
+
+        <div class="info-pagos">
+            <h4 style="text-align: center;">METODOLOGÍA DE PAGO</h4> <br>
+            <p style="font-size: 0.9rem; opacity: 0.8; max-width: 700px; margin: 0 auto; text-align: center">
+                Para todos nuestros proyectos digitales (Webs y Packs), trabajamos con una modalidad de 
+                <strong>50% de anticipo</strong> para reservar la fecha en agenda e inicio de tareas, 
+                y el <strong>50% restante</strong> contra entrega del producto final. <br>
+                <strong>Aceptamos transferencias y efectivo.</strong>
             </p>
         </div>
     </div>
@@ -335,19 +459,37 @@
             <h3 id="m-title"></h3>
             <div id="m-desc"></div>
             <span id="m-price" class="price"></span>
-            <div style="text-align: center;"><a href="https://wa.me/5491131640600" style="color: black; font-weight: 600; text-decoration: underline; letter-spacing: 1px;">INICIAR PEDIDO</a></div>
+            <div style="text-align: center;">
+                <a href="https://wa.me/5491131640600" id="wa-link-modal" style="color: black; font-weight: 600; text-decoration: underline; letter-spacing: 1px;">INICIAR PEDIDO</a></div>
         </div>
     </div>
 
     <script>
-        function openM(t, d, p) {
-            document.getElementById('m-title').innerText = t;
-            document.getElementById('m-desc').innerHTML = d;
-            document.getElementById('m-price').innerText = p;
-            document.getElementById('modal').style.display = 'flex';
-        }
-        function closeM() { document.getElementById('modal').style.display = 'none'; }
-        window.onclick = function(e) { if(e.target == document.getElementById('modal')) closeM(); }
-    </script>
+    function openM(t, d, p) {
+        
+        document.getElementById('m-title').innerText = t;
+        document.getElementById('m-desc').innerHTML = d;
+        document.getElementById('m-price').innerText = p;
+        
+        
+        const telefono = "5491131640600";
+        const mensaje = `Hola! Me interesa iniciar el pedido de: ${t}.`;
+        const waUrl = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+        
+        
+        document.getElementById('wa-link-modal').href = waUrl;
+
+        
+        document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeM() { 
+        document.getElementById('modal').style.display = 'none'; 
+    }
+
+    window.onclick = function(e) { 
+        if(e.target == document.getElementById('modal')) closeM(); 
+    }
+</script>
 </body>
 </html>

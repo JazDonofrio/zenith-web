@@ -19,11 +19,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            overflow-x: hidden; /* Evita que las limas generen scroll lateral */
+            overflow-x: hidden; 
             position: relative;
         }
 
-        /* --- Estilo del Botón Volver --- */
+        
         .btn-volver {
             align-self: flex-start;
             text-decoration: none;
@@ -31,23 +31,23 @@
             font-weight: bold;
             margin-bottom: 20px;
             font-size: 0.9rem;
-            z-index: 10; /* Para que siempre esté arriba de las limas */
+            z-index: 10; 
         }
 
-        /* --- Posicionamiento de las Limas Decorativas --- */
+        
         .lima-decorativa {
             position: absolute;
-            width: 250px; /* Tamaño de las limas flotantes */
+            width: 250px; 
             opacity: 0.8;
             z-index: 1;
-            pointer-events: none; /* Para que no interfieran al hacer clic */
+            pointer-events: none; 
         }
 
         .lima-1 { top: -50px; left: -100px; transform: rotate(-15deg); }
         .lima-2 { top: 40%; right: -80px; transform: rotate(20deg); }
         .lima-3 { bottom: -50px; left: -50px; transform: rotate(110deg); }
 
-        /* --- Contenedor del Menú --- */
+        
         .carta-box {
             position: relative;
             z-index: 5;
@@ -75,7 +75,7 @@
             margin-bottom: 40px;
         }
 
-        /* --- Ítems del Menú --- */
+        
         .menu-item {
             margin-bottom: 40px;
         }

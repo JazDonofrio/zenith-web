@@ -4,229 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZENITH | Ingeniería & Diseño Digital</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     
-    <style>
-        :root {
-            --bg-light: #f9f9f9;
-            --bg-dark: #111;
-            --card-gray: #444;
-            --text-dark: #1a1a1a;
-            --accent-chrome: linear-gradient(135deg, #e0e0e0 0%, #ffffff 45%, #909090 50%, #ffffff 55%, #b0b0b0 100%);
-            --rustic-light: #f4f1e8;
-            --rustic-accent: #c4a661;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Montserrat', sans-serif; background: white; color: var(--text-dark); overflow-x: hidden; }
-
-        nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            display: flex; justify-content: center; padding: 20px 0;
-            background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        nav a {
-            text-decoration: none; color: var(--text-dark); margin: 0 20px;
-            font-size: 0.7rem; font-weight: 600; letter-spacing: 2px;
-            text-transform: uppercase; transition: 0.3s;
-        }
-        nav a:hover { opacity: 0.5; }
-
-        #inicio {
-            height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            background: url('pexels-pixabay-208001.jpg') center/cover no-repeat;
-            position: relative; overflow: hidden; filter: grayscale(100%);
-        }
-        #inicio::before { content: ''; position: absolute; inset: 0; background: rgba(255, 255, 255, 0.2); }
-        .hero-title { position: relative; z-index: 2; text-align: center; margin-top: 20px; }
-        .hero-title h1 { font-family: 'Playfair Display', serif; font-size: 4.5rem; font-weight: 400; line-height: 1; }
-
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        .section-padding { padding: 100px 0; }
-        h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; text-align: center; letter-spacing: 3px; margin-bottom: 40px; }
-
-        #servicios { background: #f4f4f4; }
-        .category-title { text-align: center; width: 100%; padding-bottom: 40px; font-size: 1.4rem; font-weight: 300; letter-spacing: 6px; text-transform: uppercase; border-bottom: 1px solid #ddd; margin-bottom: 40px; }
-        .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-bottom: 80px; }
-        
-        .card { 
-            background: var(--card-gray); color: white; padding: 40px 20px; border-radius: 5px; 
-            text-align: center; cursor: pointer; transition: 0.4s; position: relative;
-            min-height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center;
-        }
-        .card:hover { background: #111; transform: translateY(-5px); }
-        .card span { font-size: 2.5rem; display: block; margin-bottom: 15px; }
-        .card h3 { font-size: 0.9rem; font-weight: 400; text-transform: uppercase; letter-spacing: 1px; }
-        .plus { position: absolute; top: 15px; right: 15px; opacity: 0.4; font-size: 1.2rem; }
-
-        #packs { background: var(--bg-dark); color: white; }
-        .pack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; }
-        .pack-card { border: 1px solid rgba(255,255,255,0.2); padding: 50px 30px; text-align: center; background: rgba(255,255,255,0.03); transition: 0.4s; cursor: pointer; }
-        .pack-card:hover { border-color: white; background: rgba(255,255,255,0.08); }
-        .discount-badge { display: inline-block; background: var(--accent-chrome); color: black; padding: 5px 15px; font-weight: bold; font-size: 0.8rem; margin-bottom: 20px; }
-
-        #contacto { background: white; }
-        .contact-form { max-width: 600px; margin: 0 auto; }
-        .form-group { margin-bottom: 20px; }
-        .contact-form input, .contact-form select, .contact-form textarea {
-            width: 100%; padding: 15px; border: 1px solid #ddd; background: #fdfdfd;
-            font-family: 'Montserrat', sans-serif; font-size: 0.9rem; outline: none; transition: 0.3s;
-        }
-        .cta-btn { 
-            display: inline-block; width: 100%; padding: 18px; background: var(--accent-chrome); 
-            color: black; text-decoration: none; font-weight: 600; font-size: 0.75rem; 
-            letter-spacing: 3px; border: none; cursor: pointer; margin-top: 10px;
-        }
-
-        #modal { position: fixed; inset: 0; background: rgba(0,0,0,0.95); display: none; justify-content: center; align-items: center; z-index: 2000; }
-        .modal-box { background: white; padding: 50px; max-width: 600px; width: 90%; position: relative; animation: slideUp 0.4s ease; }
-        .modal-box h3 { text-align: center; font-family: 'Playfair Display'; font-size: 1.8rem; margin-bottom: 20px; color: black; text-transform: uppercase;}
-        .close { position: absolute; top: 20px; right: 25px; cursor: pointer; font-size: 2rem; color: black; }
-        #m-desc { border-top: 1px solid #eee; padding-top: 20px; line-height: 1.6; color: #444; font-size: 0.95rem; }
-        .price { font-size: 2.2rem; font-weight: 700; margin: 25px 0; display: block; color: #000; text-align: center; }
-
-        @keyframes slideUp { from { opacity:0; transform: translateY(30px); } to { opacity:1; transform: translateY(0); } }
-
-        footer { padding: 50px 0; text-align: center; background: #f9f9f9; font-size: 0.8rem; color: #999; }
-
-        .seccion-info-ejemplos { padding: 80px 20px; background-color: #ffffff; border-top: 1px solid #f0f0f0; }
-        .contenedor-ejemplos { max-width: 1000px; margin: 0 auto; }
-        .intro-texto { text-align: center; margin-bottom: 50px; }
-        .titulo-zenith { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #000; margin-bottom: 15px; }
-        .bajada-zenith { font-family: 'Montserrat', sans-serif; color: #666; max-width: 600px; margin: 0 auto; line-height: 1.6; }
-        .grilla-proyectos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card-ejemplo { background: #fdfdfd; border: 1px solid #eee; border-radius: 12px; transition: all 0.3s ease; padding: 30px; }
-        .card-ejemplo:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); border-color: #ddd; }
-        .emoji-categoria { font-size: 2.5rem; display: block; margin-bottom: 20px; }
-        .card-cuerpo h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 12px; color: #333; }
-        .card-cuerpo p { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; color: #555; line-height: 1.5; margin-bottom: 25px; }
-        .link-demo { font-family: 'Montserrat', sans-serif; font-weight: 700; text-decoration: none; color: #000; font-size: 0.9rem; border-bottom: 2px solid #000; padding-bottom: 4px; transition: color 0.3s; }
-        .link-demo:hover { color: #4A7C44; border-color: #4A7C44; }
-
-        @media (max-width: 768px) { .hero-title h1 { font-size: 3rem; } .grid-services { grid-template-columns: 1fr; } }
-        .aclaracion-onepage {
-        margin-top: 50px;
-        padding: 25px;
-        background-color: #f9f9f9;
-        border-left: 4px solid #333;
-        text-align: center;
-        border-radius: 4px;
-        }
-
-    .aclaracion-onepage p {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 0.9rem;
-        color: #666;
-        line-height: 1.6;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .aclaracion-onepage strong {
-        color: #000;
-        letter-spacing: 1px;
-    }
-    
-.img-mockup {
-    width: 100%; 
-    height: auto; 
-    border-radius: 10px; 
-    margin-bottom: 25px; 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
-    transition: transform 0.4s ease, box-shadow 0.4s ease; 
-}
-
-
-.card-ejemplo:hover .img-mockup {
-    transform: translateY(-8px); 
-    box-shadow: 0 20px 40px rgba(0,0,0,0.12); 
-}
-
-
-.card-cuerpo {
-    text-align: center; 
-}
-
-
-.seccion-metodo-pago {
-    background-color: #fcfcfc;
-    padding: 100px 20px;
-    border-top: 1px solid #eee;
-}
-
-.metodo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
-    margin-top: 50px;
-}
-
-.metodo-card {
-    text-align: center;
-    padding: 30px;
-    background: white;
-    border: 1px solid #f0f0f0;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.metodo-card:hover {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-}
-
-.numero-paso {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: #eee;
-    display: block;
-    margin-bottom: -25px;
-}
-
-.metodo-card h3 {
-    font-size: 1rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    color: #111;
-}
-
-.metodo-card p {
-    font-size: 0.85rem;
-    color: #666;
-    line-height: 1.6;
-}
-
-.info-pagos {
-    margin-top: 60px; }  
-    /* Mejora la visualización de listas dentro del modal */
-#m-desc ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 20px 0;
-}
-
-#m-desc li {
-    margin-bottom: 10px;
-    color: #444;
-}
-
-#m-desc b {
-    color: #000;
-}  
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav>
+    <nav class="nav-principal">
+    <div class="logo-nav">ZENITH</div>
+    
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <span>☰</span>
+    </label>
+
+    <div class="menu-navegacion">
         <a href="#inicio">Inicio</a>
         <a href="#servicios">Servicios</a>
         <a href="#packs">Packs</a>
         <a href="#info-ejemplos">Info y ejemplos</a>
         <a href="#metodo-pago">Como nos manejamos</a>
         <a href="#contacto">Contacto</a>
-    </nav>
+    </div>
+</nav>
 
     <section id="inicio">
         <div class="hero-title">
@@ -239,201 +40,166 @@
         <div class="container">
             <h2 class="category-title">Presencia Digital</h2>
             <div class="grid-services">
-                <div class="card" onclick="openM('Carta Digital', 'Versión electrónica del menú, accesible desde un dispositivo móvil usualmente escaneando un código QR, que permite ver platos, bebidas, precios y hasta fotos.', '$25.000')">
+                <div class="card" onclick="openM('Carta Digital', 'Versión electrónica del menú...', '$25.000')">
                     <span class="plus">+</span><span>📑</span><h3>Carta Digital</h3>
                 </div>
-                <div class="card" onclick="openM('Página Web Simple', 'Desarrollo de sitio One-Page profesional y adaptable. Por mas que no quieras vender tu producto o servicios la pagina web es una gran oportunidad para llegar a mas gente. <br><br><strong>Nota:</strong> No incluye costos de dominio ni hosting pero si la orientacion a conseguir estos.', '$70.000')">
+                <div class="card" onclick="openM('Página Web Simple', 'Desarrollo de sitio One-Page...', '$70.000')">
                     <span class="plus">+</span><span>🌐</span><h3>Página Web Simple</h3>
                 </div>
-                <div class="card" onclick="openM('Desarrollo Web Multi-página', 'Una página web organizada por pestañas o secciones separadas (por ejemplo: Inicio, Quiénes Somos, Servicios y Contacto). <br><br><strong>Nota:</strong> No incluye costos de dominio ni hosting pero si la orientacion a conseguir estos.', '$85.000')">
+                <div class="card" onclick="openM('Desarrollo Web Multi-página', 'Una página web organizada...', '$85.000')">
                     <span class="plus">+</span><span>🗂️</span><h3>Desarrollo Web Multi-página</h3>
                 </div>
-                <div class="card" onclick="openM('Diseño de Flyers', 'Diseño de piezas gráficas publicitarias para redes sociales o impresión.', '$8.000')">
+                <div class="card" onclick="openM('Diseño de Flyers', 'Diseño de piezas gráficas...', '$8.000')">
                     <span class="plus">+</span><span>🎨</span><h3>Diseño Flyers</h3>
                 </div>
-                <div class="card" onclick="openM('Asistente Digital', 'Configuración de herramientas digitales, bots de respuesta o automatización básica.', '$20.000')">
+                <div class="card" onclick="openM('Asistente Digital', 'Configuración de herramientas...', '$20.000')">
                     <span class="plus">+</span><span>🤖</span><h3>Asistente Digital</h3>
                 </div>
             </div>
 
             <h2 class="category-title">Sistemas & Asesoría</h2>
             <div class="grid-services">
-                <div class="card" onclick="openM('Instalación de S.O.', 'Formateo completo e instalación limpia de Windows o Linux. Incluye configuración de drivers y optimización para un rendimiento máximo del equipo.', '$20.000')">
+                <div class="card" onclick="openM('Instalación de S.O.', 'Formateo completo e instalación...', '$20.000')">
                     <span class="plus">+</span><span>⚙️</span><h3>Instalación de S.O.</h3>
                 </div>
-                <div class="card" onclick="openM('Paquete Office', 'Instalación de Word, Excel y PowerPoint. Incluye la activación completa de todas las herramientas para estudio o trabajo.', '$15.000')">
+                <div class="card" onclick="openM('Paquete Office', 'Instalación de Word, Excel...', '$15.000')">
                     <span class="plus">+</span><span>📊</span><h3>Paquete Office</h3>
                 </div>
-                <div class="card" onclick="openM('Consultoría de Hardware', 'Asesoría técnica para la compra de una PC nueva o actualización de componentes. Te indicamos qué equipo es mejor según tu presupuesto y necesidades. <br><br><strong>Nota:</strong> No incluye venta ni instalación de partes físicas.', '$15.000')">
+                <div class="card" onclick="openM('Consultoría de Hardware', 'Asesoría técnica para la compra...', '$15.000')">
                     <span class="plus">+</span><span>🖥️</span><h3>Consultoría Hardware</h3>
                 </div>
             </div>
         </div>
     </section>
+
     <section style="background: #000; color: #fff; padding: 80px 0;">
-    <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center;">
-        <div>
-            <h4 style="letter-spacing: 2px;">ENFOQUE TÉCNICO</h4>
-            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">Soluciones basadas en ingeniería, no solo en estética.</p>
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center;">
+            <div>
+                <h4 style="letter-spacing: 2px;">ENFOQUE TÉCNICO</h4>
+                <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">Soluciones basadas en ingeniería, no solo en estética.</p>
+            </div>
+            <div>
+                <h4 style="letter-spacing: 2px;">SOPORTE LOCAL</h4>
+                <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">Atención personalizada en nuestra zona.</p>
+            </div>
+            <div>
+                <h4 style="letter-spacing: 2px;">OPTIMIZACIÓN</h4>
+                <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">Sistemas livianos, rápidos y fáciles de usar.</p>
+            </div>
         </div>
-        <div>
-            <h4 style="letter-spacing: 2px;">SOPORTE LOCAL</h4>
-            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">Atención personalizada en nuestra zona.</p>
-        </div>
-        <div>
-            <h4 style="letter-spacing: 2px;">OPTIMIZACIÓN</h4>
-            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">Sistemas livianos, rápidos y fáciles de usar.</p>
-        </div>
-    </div>
-</section>
+    </section>
 
     <section id="packs" class="section-padding">
-    <div class="container">
-        <h2 style="color: var(--rustic-light);">PACKS PROMOCIONALES DIGITALES</h2>
-        <div class="pack-grid">
-            
-            <div class="pack-card" onclick="openM('Pack Gastro Digital', 
-                'La solución definitiva para modernizar tu bar o restaurante. <br><br><b>¿Qué incluye?</b><ul style=\'text-align:left; margin-top:10px; font-size:0.9rem; line-height:1.8;\'><li>✅ <b>Carta Digital QR:</b> Cambiá precios sin volver a imprimir.</li><li>✅ <b>Diseño Gráfico:</b> 2 flyers profesionales para tus redes.</li><li>✅ <b>WhatsApp Business:</b> Perfil configurado con tus horarios y fotos.</li></ul>', 
-                '$42.000')">
-                <div class="discount-badge">MÁS VENDIDO</div>
-                <h3>Gastro Digital</h3>
-                <p>Digitalizá tu menú y agilizá la atención de tus clientes de forma profesional.</p>
-            </div>
+        <div class="container">
+            <h2 style="color: var(--rustic-light);">PACKS PROMOCIONALES DIGITALES</h2>
+            <div class="pack-grid">
+                <div class="pack-card" onclick="openM('Pack Gastro Digital', 'La solución definitiva...', '$100.000')">
+                    <div class="discount-badge">MÁS VENDIDO</div>
+                    <h3>Gastro Digital</h3>
+                    <p>Digitalizá tu menú y agilizá la atención de tus clientes de forma profesional.</p>
+                </div>
 
-            <div class="pack-card" onclick="openM('Pack Turismo Premium', 
-                'Diseñado para dueños de cabañas y hoteles que buscan distinguirse. <br><br><b>¿Qué incluye?</b><ul style=\'text-align:left; margin-top:10px; font-size:0.9rem; line-height:1.8;\'><li>✅ <b>Web Multi-página:</b> Secciones para Galería, Ubicación y Servicios.</li><li>✅ <b>Diseño Exclusivo:</b> Estética enfocada en el confort y relax.</li><li>✅ <b>QR Wi-Fi:</b> Placa lista para que tus huéspedes se conecten sin preguntar.</li></ul>', 
-                '$130.000')">
-                <div class="discount-badge">PREMIUM</div>
-                <h3>Turismo Premium</h3>
-                <p>Brindá confianza y exclusividad con un sitio web de alto impacto visual.</p>
-            </div>
+                <div class="pack-card" onclick="openM('Pack Turismo Premium', 'Diseñado para dueños de cabañas...', '$130.000')">
+                    <div class="discount-badge">PREMIUM</div>
+                    <h3>Turismo Premium</h3>
+                    <p>Brindá confianza y exclusividad con un sitio web de alto impacto visual.</p>
+                </div>
 
-            <div class="pack-card" onclick="openM('Pack Emprendedor', 
-                'Todo lo que necesitás para lanzar tu negocio al mundo digital hoy mismo. <br><br><b>¿Qué incluye?</b><ul style=\'text-align:left; margin-top:10px; font-size:0.9rem; line-height:1.8;\'><li>✅ <b>Web One-Page:</b> Tu negocio abierto las 24hs en una sola página.</li><li>✅ <b>Identidad Visual:</b> Diseño de logo básico para arrancar con todo.</li><li>✅ <b>Publicidad:</b> 1 flyer de lanzamiento para captar clientes. <br> <br><b>✅Garantía Zenith:</b> 3 meses de mantenimiento básico GRATIS.</li></ul>', 
-                '$80.000')">
-                <div class="discount-badge">-20% OFF</div>
-                <h3>Emprendedor</h3>
-                <p>La base sólida para que tu nuevo proyecto se vea serio y profesional desde el día 1.</p>
-            </div>
+                <div class="pack-card" onclick="openM('Pack Emprendedor', 'Todo lo que necesitás para lanzar...', '$80.000')">
+                    <div class="discount-badge">-20% OFF</div>
+                    <h3>Emprendedor</h3>
+                    <p>La base sólida para que tu nuevo proyecto se vea serio y profesional.</p>
+                </div>
 
-            <div class="pack-card" onclick="openM('Pack Asistente Pro', 
-                'Ideal para quienes reciben muchas consultas y pierden tiempo en lo repetitivo. <br><br> <b>¿Qué incluye?</b><ul style=\'text-align:left; margin-top:10px; font-size:0.9rem; line-height:1.8;\'><li>✅ <b>WhatsApp Business:</b> Configuración de catálogo y mensajes.</li><li>✅ <b>Respuestas Rápidas:</b> Atajos para contestar en un segundo.</li><li>✅ <b>Organización:</b> Etiquetas de clientes (Pagos, Envíos).</li><li> ', 
-                '$35.000')">
-                <div class="discount-badge">NUEVO</div>
-                <h3>Asistente Pro</h3>
-                <p>Automatizá tu atención: respondé más rápido y vendé más sin estar pegado al celular.</p>
-            </div>
+                <div class="pack-card" onclick="openM('Pack Estudiante Full', 'Prepará tu herramienta de estudio...', '$45.000')">
+                    <div class="discount-badge">ESTUDIANTES</div>
+                    <h3>Estudiante Full</h3>
+                    <p>Tu notebook lista para el año académico: rápida y segura.</p>
+                </div>
 
-            <div class="pack-card" onclick="openM('Pack Estudiante Full', 
-                'Prepará tu herramienta de estudio para que rinda al máximo y no te falle. <br><br><b>¿Qué incluye?</b><ul style=\'text-align:left; margin-top:10px; font-size:0.9rem; line-height:1.8;\'><li>✅ <b>Limpieza de Software:</b> Instalación de S.O. optimizado.</li><li>✅ <b>Office Completo:</b> Word, Excel y Powerpoint activados.</li><li>✅ <b>Consultoría:</b> Guía para futuras compras de hardware según tu carrera.</li></ul>', 
-                '$45.000')">
-                <div class="discount-badge">ESTUDIANTES</div>
-                <h3>Estudiante Full</h3>
-                <p>Tu notebook lista para el año académico: rápida, segura y con todo instalado.</p>
+                <div class="pack-card" onclick="openM('Pack Oficina Tech', 'El combo ideal para profesionales...', '$40.000')">
+                    <div class="discount-badge">PRO</div>
+                    <h3>Oficina Tech</h3>
+                    <p>Productividad máxima: configuramos tu equipo.</p>
+                </div>
             </div>
-
-            <div class="pack-card" onclick="openM('Pack Oficina Tech', 
-                'El combo ideal para profesionales independientes y trabajo remoto. <br><br><b>¿Qué incluye?</b><ul style=\'text-align:left; margin-top:10px; font-size:0.9rem; line-height:1.8;\'><li>✅ <b>Puesta a punto:</b> Sistema operativo configurado para trabajo.</li><li>✅ <b>Herramientas Pro:</b> Paquete Office y aplicaciones de oficina.</li><li>✅ <b>Comunicación:</b> WhatsApp Business para separar lo personal de lo laboral.</li></ul>', 
-                '$55.000')">
-                <div class="discount-badge">PRO</div>
-                <h3>Oficina Tech</h3>
-                <p>Productividad máxima: configuramos tu equipo y tus canales de comunicación.</p>
-            </div>
-
         </div>
-    </div>
-</section>
+    </section>
 
     <section id="info-ejemplos" class="seccion-info-ejemplos">
-    <div class="contenedor-ejemplos">
-        <div class="intro-texto">
-            <h2 class="titulo-zenith">Info y Ejemplos</h2>
-            <p class="bajada-zenith">
-                Crear una presencia digital no tiene por qué ser complicado. Acá podés ver cómo transformamos ideas en herramientas reales para tu negocio.
-            </p>
-        </div>
+        <div class="contenedor-ejemplos">
+            <div class="intro-texto">
+                <h2 class="titulo-zenith">Info y Ejemplos</h2>
+                <p class="bajada-zenith">Crear una presencia digital no tiene por qué ser complicado.</p>
+            </div>
 
-        <div class="grilla-proyectos">
-            <article class="card-ejemplo">
-                <div class="card-cuerpo">
-                    <img src="imagenes/d8TqHBd5fuB.png" alt="Mockup Carta Digital en Celular" class="img-mockup">
-                    
-                    <h3>Carta Digital QR</h3>
-                    <p>Mantené tus precios al día y mostrá tus productos de forma atractiva en el celular de tus clientes. (Los diseños quedan a gusto del cliente, esto que presentamos son ejemplos de que es una carta digital)</p>
-                    <a href="galeria-cartas.html" class="link-demo">Ver Tipos de Cartas →</a>
+            <div class="grilla-proyectos">
+                <article class="card-ejemplo">
+                    <div class="card-cuerpo">
+                        <img src="imagenes/d8TqHBd5fuB.png" alt="Mockup Carta Digital" class="img-mockup">
+                        <h3>Carta Digital QR</h3>
+                        <p>Mantené tus precios al día y mostrá tus productos de forma atractiva.</p>
+                        <a href="galeria-cartas.html" class="link-demo">Ver Tipos de Cartas →</a>
+                    </div>
+                </article>
+
+                <article class="card-ejemplo">
+                    <div class="card-cuerpo">
+                        <img src="imagenes/6e81f610234.png" alt="Mockup Sitio Web" class="img-mockup">
+                        <h3>Sitio Web Multi-página</h3>
+                        <p>La opción ideal para empresas que necesitan organizar mucha información.</p>
+                        <a href="demos/indexdemos.html" target="_blank" class="link-demo">Ver Ejemplo Real →</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="aclaracion-onepage">
+                 <p><strong>Nota de Diseño:</strong> Esta plataforma es un ejemplo real de un sitio <strong>One-Page</strong>.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="metodo-pago" class="seccion-metodo-pago">
+        <div class="container">
+            <h2>NUESTRO MÉTODO</h2>
+            <div class="metodo-grid">
+                <div class="metodo-card">
+                    <span class="numero-paso">01</span>
+                    <h3>Relevamiento</h3>
+                    <p>Se analiza la solicitud del cliente detalladamente.</p>
                 </div>
-            </article>
-
-            <article class="card-ejemplo">
-                <div class="card-cuerpo">
-                    <img src="imagenes/6e81f610234.png" alt="Mockup Sitio Web Cabañas en Notebook" class="img-mockup">
-                    
-                    <h3>Sitio Web Multi-página</h3>
-                    <p>La opción ideal para empresas que necesitan organizar mucha información en secciones separadas.(Los diseños quedan a gusto del cliente, esto que presentamos son ejemplos de como es una Web multi-pagina)</p>
-                    <a href="demos/indexdemos.html" target="_blank" class="link-demo">Ver Ejemplo Real →</a>
+                <div class="metodo-card">
+                    <span class="numero-paso">02</span>
+                    <h3>Planificación</h3>
+                    <p>Establecemos la arquitectura del sitio mediante un croquis.</p>
                 </div>
-            </article>
-        </div>
-
-        <div class="aclaracion-onepage">
-             <p>
-                <strong>Nota de Diseño:</strong> Esta plataforma de <strong>ZENITH</strong> que estás navegando es, en su mayoría, un ejemplo real de un sitio <strong>One-Page</strong>. 
-                Este formato es ideal para negocios que buscan una navegación rápida, directa y moderna en una sola pantalla.
-            </p>
-        </div>
-    </div>
-</section>
-<section id="info-ejemplos" class="seccion-info-ejemplos">
-</section>
-<section id="metodo-pago" class="seccion-metodo-pago">
-    <div class="container">
-        <h2>NUESTRO MÉTODO</h2>
-        <div class="metodo-grid">
-            
-            <div class="metodo-card">
-                <span class="numero-paso">01</span>
-                <h3>Relevamiento</h3>
-                <p>Primero se analiza la solicitud del cliente en el que se pide detalladamente las necesidades, gustos de diseño y tiempo final del proyecto.</p>
+                <div class="metodo-card">
+                    <span class="numero-paso">03</span>
+                    <h3>Desarrollo</h3>
+                    <p>Traducimos tus ideas a código profesional.</p>
+                </div>
+                <div class="metodo-card">
+                    <span class="numero-paso">04</span>
+                    <h3>Entrega final</h3>
+                    <p>Realizamos las pruebas de calidad finales.</p>
+                </div>
             </div>
 
-            <div class="metodo-card">
-                <span class="numero-paso">02</span>
-                <h3>Planificación</h3>
-                <p>Establecemos la arquitectura del sitio o sistema, mediante un croquis (borrador que sirve para idear el modelo). Una vez aprobado el plan, se realiza el primer pago para iniciar el desarrollo.</p>
+            <div class="info-pagos">
+                <h4 style="text-align: center;">METODOLOGÍA DE PAGO</h4><br>
+                <p style="font-size: 0.9rem; opacity: 0.8; max-width: 700px; margin: 0 auto; text-align: center">
+                    <strong>50% de anticipo</strong> y <strong>50% restante</strong> contra entrega.
+                </p>
             </div>
-
-            <div class="metodo-card">
-                <span class="numero-paso">03</span>
-                <h3>Desarrollo</h3>
-                <p>Traducimos tus ideas a código profesional. Te mantendremos al tanto del progreso mediante demos privadas en nuestro servidor.</p>
-            </div>
-
-            <div class="metodo-card">
-                <span class="numero-paso">04</span>
-                <h3>Entrega final</h3>
-                <p>Realizamos las pruebas de calidad finales. Una vez que el sistema está a punto, se abona el saldo y realizamos el lanzamiento oficial.</p>
-            </div>
-
         </div>
-
-        <div class="info-pagos">
-            <h4 style="text-align: center;">METODOLOGÍA DE PAGO</h4> <br>
-            <p style="font-size: 0.9rem; opacity: 0.8; max-width: 700px; margin: 0 auto; text-align: center">
-                Para todos nuestros proyectos digitales (Webs y Packs), trabajamos con una modalidad de 
-                <strong>50% de anticipo</strong> para reservar la fecha en agenda e inicio de tareas, 
-                y el <strong>50% restante</strong> contra entrega del producto final. <br>
-                <strong>Aceptamos transferencias y efectivo.</strong>
-            </p>
-        </div>
-    </div>
-</section>
+    </section>
 
     <section id="contacto" class="section-padding">
         <div class="container">
             <h2>C O N T A C T O</h2>
             <form action="https://formspree.io/f/xqekrbpb" method="POST" class="contact-form">
                 <div class="form-group"><input type="text" name="nombre" placeholder="Nombre Completo" required></div>
-                <div class="form-group"><input type="email" name="email" placeholder="Tu Correo Electrónico" required></div>
+                <div class="form-group"><input type="email" name="email" placeholder="Tu Correo" required></div>
                 <div class="form-group">
                     <select name="servicio">
                         <option value="" disabled selected>Servicio de interés</option>
@@ -460,36 +226,11 @@
             <div id="m-desc"></div>
             <span id="m-price" class="price"></span>
             <div style="text-align: center;">
-                <a href="https://wa.me/5491131640600" id="wa-link-modal" style="color: black; font-weight: 600; text-decoration: underline; letter-spacing: 1px;">INICIAR PEDIDO</a></div>
+                <a href="https://wa.me/5491131640600" id="wa-link-modal" style="color: black; font-weight: 600; text-decoration: underline; letter-spacing: 1px;">INICIAR PEDIDO</a>
+            </div>
         </div>
     </div>
 
-    <script>
-    function openM(t, d, p) {
-        
-        document.getElementById('m-title').innerText = t;
-        document.getElementById('m-desc').innerHTML = d;
-        document.getElementById('m-price').innerText = p;
-        
-        
-        const telefono = "5491131640600";
-        const mensaje = `Hola! Me interesa iniciar el pedido de: ${t}.`;
-        const waUrl = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
-        
-        
-        document.getElementById('wa-link-modal').href = waUrl;
-
-        
-        document.getElementById('modal').style.display = 'flex';
-    }
-
-    function closeM() { 
-        document.getElementById('modal').style.display = 'none'; 
-    }
-
-    window.onclick = function(e) { 
-        if(e.target == document.getElementById('modal')) closeM(); 
-    }
-</script>
+    <script src="script.js"></script>
 </body>
 </html>

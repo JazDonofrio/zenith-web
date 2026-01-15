@@ -10,7 +10,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: 'Montserrat', sans-serif; background: white; color: var(--text-dark); overflow-x: hidden; }
+body { font-family: 'Montserrat', sans-serif; background: #ffffff; color: var(--text-dark); overflow-x: hidden; }
 
 nav {
     position: fixed; top: 0; width: 100%; z-index: 1000;
@@ -184,5 +184,130 @@ footer { padding: 50px 0; text-align: center; background: #f9f9f9; font-size: 0.
     
     #check:checked ~ .menu-navegacion {
         left: 0;
+    }
+}
+
+
+.aclaracion-onepage {
+    margin-top: 50px;
+    padding: 25px;
+    background-color: #b6b6b650; 
+    border-left: 4px solid #000000; 
+    text-align: center;
+    border-radius: 4px; 
+}
+
+
+.aclaracion-onepage p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.aclaracion-onepage strong {
+    color: #000;
+    letter-spacing: 1px;
+}
+
+.timeline {
+    display: flex;
+    justify-content: space-between; 
+    position: relative;
+    margin-top: 60px;
+    padding: 20px 0;
+}
+
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 50px; 
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #e0e0e0; 
+    z-index: 0; 
+}
+
+
+.timeline-step {
+    text-align: center;
+    position: relative;
+    z-index: 1; 
+    flex: 1;
+    padding: 0 15px;
+}
+
+
+.step-marker {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: #fff; 
+    border: 2px solid var(--rustic-accent); 
+    border-radius: 50%; 
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+}
+
+
+.step-content h3 {
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+
+.step-content p {
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.5;
+    max-width: 180px; 
+    margin: 0 auto; 
+}
+
+
+@media (max-width: 768px) {
+    .timeline {
+        flex-direction: column; 
+        align-items: flex-start; 
+        padding-left: 30px; 
+    }
+
+    
+    .timeline::before {
+        top: 0;
+        left: 29px; 
+        width: 2px;
+        height: 100%;
+    }
+
+    .timeline-step {
+        display: flex; 
+        text-align: left;
+        margin-bottom: 30px;
+        align-items: flex-start;
+    }
+
+    .step-marker {
+        margin-right: 20px;
+        margin-bottom: 0;
+        flex-shrink: 0; 
+    }
+
+    .step-content p {
+        max-width: none; 
+        margin: 0;
     }
 }

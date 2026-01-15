@@ -32,3 +32,11 @@ window.onclick = function(event) {
         closeM(); 
     }
 }
+document.querySelectorAll('.menu-navegacion a').forEach(enlace => {
+    enlace.addEventListener('click', () => {
+        const checkbox = document.getElementById('check');
+        if (checkbox) {
+            checkbox.checked = false; 
+        }
+    });
+});
